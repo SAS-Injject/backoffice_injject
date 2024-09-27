@@ -1,0 +1,29 @@
+{% if pages > 1 %}
+  <nav>
+    <ul class="pagination-i">
+      {% if currentPage > 1 %}
+      <li class="page-item-i">
+        <a href="{{ path(path, {page: currentPage - 1 }) }}" class="page-link-i">&lt;</a>
+      </li>
+      {% else %}
+      <li class="page-item-i disabled">
+        <a class="page-link-i">&lt;</a>
+      </li>
+      {% endif %}
+      {% for page in 1..pages %}
+      <li class="page-item-i {{ (page == currentPage) ? 'active' : '' }}">
+        <a href="{{ path(path, {page: page }) }}" class="page-link-i">{{ page }}</a>
+      </li>
+      {% endfor %}
+      {% if currentPage < pages %}
+      <li class="page-item-i">
+        <a href="{{ path(path, {page: currentPage + 1 }) }}" class="page-link-i">&gt;</a>
+      </li>
+      {% else %}
+      <li class="page-item-i disabled">
+        <a class="page-link-i">&gt;</a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}
