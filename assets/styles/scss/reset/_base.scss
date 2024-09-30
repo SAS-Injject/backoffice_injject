@@ -1,0 +1,27 @@
+body {
+
+  --nav-width: 300px;
+
+  @media screen and (min-width: 1300px) {
+    display: grid;
+    grid-template-columns: var(--nav-width) 1fr;
+  }
+
+  header {
+    grid-column: 1;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    height: fit-content;
+  }
+
+  main {
+    grid-column: 2;
+
+    position: relative;
+    z-index: 1;
+
+    height: inherit;
+  }
+}

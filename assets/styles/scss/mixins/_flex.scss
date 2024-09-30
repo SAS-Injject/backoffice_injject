@@ -1,0 +1,93 @@
+@mixin base-flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin gap-flex($row, $column) {
+  row-gap: $row;
+  column-gap: $column;
+}
+
+$flex-directions: (
+  "row": row,
+  "rrow": row-reverse,
+  "col": column,
+  "rcol": column-reverse,
+);
+
+$flex-justify: (
+  "c": center,
+  "s": start,
+  "e": end,
+  "l": left,
+  "r": right,
+  "sa": space-around,
+  "sb": space-between,
+  "se": space-evenly,
+  "st": stretch
+);
+
+$wraps: (
+  "nw": nowrap,
+  "w": wrap
+);
+
+$gaps: (
+  "min": 5px,
+  "xs": 10px,
+  "sm": 13px,
+  "std": 18px,
+  "md": 25px,
+  "lg": 35px,
+  "xl": 50px,
+  "max": 75px
+);
+
+* {
+
+  .flex {
+    display: flex;
+    &.flex-full-width {
+      * {
+        width: 100%;
+      }
+    }
+  }
+
+  .full-width {
+    flex: 1;
+  }
+
+  @each $direction, $value in $flex-directions {
+    .flexd-#{$direction} {
+      flex-direction: $value;
+    }
+  }
+  @each $wrap, $value in $wraps {
+    .flexw-#{$wrap} {
+      flex-wrap: $value;
+    }
+  }
+  @each $justify, $value in $flex-justify {
+    .flexj-#{$justify} {
+      justify-content: $value;
+    }
+    .flexa-#{$justify} {
+      align-items: $value;
+    }
+  }
+
+  @each $gap, $value in $gaps {
+    .gap-#{$gap} {
+      gap: $value;
+    }
+    .rgap-#{$gap} {
+      row-gap: $value;
+    }
+    .cgap-#{$gap} {
+      column-gap: $value;
+    }
+  }
+}

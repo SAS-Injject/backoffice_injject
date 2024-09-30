@@ -1,0 +1,42 @@
+<nav id="main-navigation">
+  <div id="nav-logo" class="bg-white">
+    <img src="{{ asset('/assets/imgs/logo/full-logo.png') }}" />
+  </div>
+  <aside>
+    {% for link in config.navigation %}
+      {% if link.role in app.user.roles %}
+        <a 
+          href="{{ path(link.href) }}"
+          class="nav-link 
+            {% if link.href in app.request.attributes.get('_route') %}active{% endif %} 
+            {% if link.sub is defined and link.sub is iterable and link.sub|length > 0 %}dropdown{% endif %}"
+        >{{ link.label }}</a>
+        {% if link.sub is defined and link.sub is iterable and link.sub|length > 0 %}
+          <nav class="sub-bar">
+            <aside>
+              <div class="sub-bar-title">
+                {{ link.label }}
+              </div>
+              {% for sublink in link.sub %}
+                 {% if sublink.role in app.user.roles %}
+                  <a 
+                    href="{{ path(sublink.href) }}"
+                    class="sub-nav-link"
+                  >{{ sublink.label }}</a>
+                {% else %}
+                  <p
+                    class="sub-nav-link disabled"
+                  >{{ sublink.label }}</p>
+                {% endif %}
+              {% endfor %}
+            </aside>
+          </nav>
+        {% endif %}
+      {% else %}
+        <p
+          class="nav-link disabled"
+        >{{ link.label }}</p>
+      {% endif %}
+    {% endfor %}
+  </aside>
+</nav>

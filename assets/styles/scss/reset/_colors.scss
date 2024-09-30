@@ -1,0 +1,57 @@
+:root {
+  --main: #0f4c81;
+  --main-hover: #185992;
+  --main-active: #094172;
+  --main-balance: #FFFFFF;
+  --main-hover-balance: #FFFFFF;
+  --main-active-balance: #FFFFFF;
+}
+
+* {
+  .bg-main {
+    background-color: var(--main);
+    color: var(--main-balance);
+  }
+  .bg-main-hover {
+    background-color: var(--main-hover);
+    color: var(--main-hover-balance);
+  }
+  .bg-main-active {
+    background-color: var(--main-active);
+    color: var(--main-active-balance);
+  }
+
+  @each $color, $value in $shades-colors {
+    --#{$color}: #{$value};
+    .bg-#{$color} {
+      background-color: var(--#{$value});
+    }
+  }
+
+  @each $color, $value in $theme-colors {
+    --#{$color}: #{$value};
+    .bg-#{$color} {
+      background-color: var(--#{$value});
+    }
+  }
+  
+  @each $color, $value in $theme-colors-hover {
+    --#{$color}-hover: #{$value};
+  }
+  
+  @each $color, $value in $theme-colors-active {
+    --#{$color}-active: #{$value};
+  }
+  
+  @each $color, $value in $theme-colors-balance {
+    --#{$color}-balance: #{$value};
+  }
+  
+  @each $color, $value in $theme-colors-hover-balance {
+    --#{$color}-hover-balance: #{$value};
+  }
+  
+  @each $color, $value in $theme-colors-active-balance {
+    --#{$color}-active-balance: #{$value};
+  }
+}

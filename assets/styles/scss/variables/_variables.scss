@@ -1,0 +1,260 @@
+/*
+################
+     COLORS
+################
+*/
+
+// Shades
+$white: white;
+$lighter: #fbfbfb;
+$light: #F8F8F8;
+$lightless: #F0F0F0;
+$light-grey: #d3d3d3;
+$grey: #aaaaaa;
+$dark: #303030;
+$darker: #232323;
+$black: #0a0a0a;
+
+$blue: #4a4aff;
+$blue-hover: #5a5aff;
+$blue-active: #3a3aff;
+$blue-balance: $white;
+$blue-hover-balance: $white;
+$blue-active-balance: $white;
+
+$red: #ff4a4a;
+$red-hover: #ff5a5a;
+$red-active: #ff3a3a;
+$red-balance: $white;
+$red-hover-balance: $white;
+$red-active-balance: $white;
+
+$green: #4aff4a;
+$green-hover: #5aff5a;
+$green-active: #3aff3a;
+$green-balance: $black;
+$green-hover-balance: $black;
+$green-active-balance: $black;
+
+$disabled: #a4a4a4;
+$disabled-hover: #a4a4a4;
+$disabled-active: #a4a4a4;
+$disabled-balance: $black;
+$disabled-hover-balance: $black;
+$disabled-active-balance: $black;
+
+$transparent: #ffffff00;
+$transparent-hover: #ffffff15;
+$transparent-active: #ffffff10;
+$transparent-balance: $black;
+$transparent-hover-balance: $black;
+$transparent-active-balance: $black;
+
+//Add Colors here
+$main: #0f4c81;
+$main-hover: #185992;
+$main-active: #094172;
+$main-balance: $white;
+$main-hover-balance: $white;
+$main-active-balance: $white;
+
+$widget-blue: #0032B4;
+$widget-green: #00B432;
+$widget-red: #B43200;
+
+$icons-success: #07B44C;
+$icons-info: #0F4C81;
+$icons-warning: #D39D10;
+$icons-error: #D03310;
+
+
+//Theme Colors
+
+$shades-colors: (
+  "white": $white,
+  "lighter": $lighter,
+  "light": $light,
+  "lightless": $lightless,
+  "light-grey": $light-grey,
+  "grey": $grey,
+  "dark": $dark,
+  "draker": $darker,
+  "black": $black,
+);
+
+$widgets-colors: (
+  "widget-blue": $widget-blue,
+  "widget-green": $widget-green,
+  "widget-red": $widget-red,  
+);
+
+$icons-colors: (
+  "icon-success": $icons-success,
+  "icon-info": $icons-info,
+  "icon-warning": $icons-warning,
+  "icon-error": $icons-error,
+);
+
+$theme-colors: (
+  "blue": $blue,
+  "red": $red,
+  "green": $green,
+  "disabled": $disabled,
+  "transparent": $transparent,
+);
+
+$theme-colors-hover: (
+  "blue": $blue-hover,
+  "red": $red-hover,
+  "green": $green-hover,
+  "disabled": $disabled-hover,
+  "transparent": $transparent-hover,
+);
+
+$theme-colors-active: (
+  "blue": $blue-active,
+  "red": $red-active,
+  "green": $green-active,
+  "disabled": $disabled-active,
+  "transparent": $transparent-active,
+);
+
+$theme-colors-balance: (
+  "blue": $blue-balance,
+  "red": $red-balance,
+  "green": $green-balance,
+  "disabled": $disabled-balance,
+  "transparent": $transparent-balance,
+);
+
+$theme-colors-hover-balance: (
+  "blue": $blue-hover-balance,
+  "red": $red-hover-balance,
+  "green": $green-hover-balance,
+  "disabled": $disabled-hover-balance,
+  "transparent": $transparent-hover-balance,
+);
+
+$theme-colors-active-balance: (
+  "blue": $blue-active-balance,
+  "red": $red-active-balance,
+  "green": $green-active-balance,
+  "disabled": $disabled-active-balance,
+  "transparent": $transparent-active-balance,
+);
+
+
+/*
+################
+     FONTS
+################
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+$main-font: "Roboto";
+
+$text-size-xs: 9px;
+$text-size-sm: 12px;
+$text-size-std: 15px;
+$text-size-md: 18px;
+$text-size-lg: 20px;
+$text-size-xl: 25px;
+
+$title-size-6: 20px;
+$title-size-5: 23px;
+$title-size-4: 28px;
+$title-size-3: 32px;
+$title-size-2: 36px;
+$title-size-1: 40px;
+
+$title-weight-6: 400;
+$title-weight-5: 400;
+$title-weight-4: 400;
+$title-weight-3: 500;
+$title-weight-2: 500;
+$title-weight-1: 600;
+
+$title-height-6: 1em;
+$title-height-5: 1.05em;
+$title-height-4: 1.1em;
+$title-height-3: 1.15em;
+$title-height-2: 1.2em;
+$title-height-1: 1.25em;
+
+$title-spacing-6: 0.03em;
+$title-spacing-5: 0.03em;
+$title-spacing-4: 0.04em;
+$title-spacing-3: 0.04em;
+$title-spacing-2: 0.05em;
+$title-spacing-1: 0.05em;
+
+$text-size: (
+  "xs": $text-size-xs,
+  "sm": $text-size-sm,
+  "std": $text-size-std,
+  "md": $text-size-md,
+  "lg": $text-size-lg,
+  "xl": $text-size-xl,
+);
+
+$title-format: (
+  "6" $title-size-6 $title-weight-6 $title-height-6 $title-spacing-6,
+  "5" $title-size-5 $title-weight-5 $title-height-5 $title-spacing-5,
+  "4" $title-size-4 $title-weight-4 $title-height-4 $title-spacing-4,
+  "3" $title-size-3 $title-weight-3 $title-height-3 $title-spacing-3,
+  "2" $title-size-2 $title-weight-2 $title-height-2 $title-spacing-2,
+  "1" $title-size-1 $title-weight-1 $title-height-1 $title-spacing-1,
+);
+
+$text-thickness: (
+  "thin": 200,
+  "std": 400,
+  "medium": 500,
+  "bold": 700,
+  "thick": 900
+);
+
+$text-align: (
+  "c": center,
+  "s": start,
+  "e": end,
+  "j": justify,
+  "i": inherit
+);
+
+/*
+################
+     LAYOUT
+################
+*/
+
+$main-content-background: $lighter;
+
+/*
+################
+    MARGINS
+################
+*/
+
+$paddings: (
+  "min": 2px,
+  "xs": 4px,
+  "sm": 7px,
+  "std": 12px,
+  "md": 15px,
+  "lg": 20px,
+  "xl": 25px,
+  "max": 35px,
+);
+
+$margins: (
+  "min": 5px,
+  "xs": 10px,
+  "sm": 13px,
+  "std": 18px,
+  "md": 25px,
+  "lg": 35px,
+  "xl": 50px,
+  "max": 75px
+);
+

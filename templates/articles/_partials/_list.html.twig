@@ -1,0 +1,35 @@
+{% extends "_partials/_std_table_list.html.twig" %}
+
+{% block ttitle %}Listes des Articles{% endblock %}
+
+{% block tbody %}
+  <tr class="line-link" data-href="{{ path('app_articles_add') }}">
+    <td scope='row' colspan="5" class="center fw-bold fc-main">Nouvel Articles</td>
+  </tr>
+  {% if articles|length > 0 %}
+    {% for article in articles %}
+    <tr class="line-link" data-href="{{ path('app_articles_edit', {'id': article.id}) }}">
+      <td class="fw-bold center" scope="row">{{ "%05d"|format(article.id) }}</td>
+      <td>{{ article.title }}</td>
+      {# <td data-bs-toggle="tooltip" 
+        data-bs-html="true"
+        data-bs-title="{% for category in article.categories %}{{ category.label }}<br>{% endfor %}" 
+      >{% if article.categories|length > 0 %}{{ article.categories[0].label }}{% if article.categories|length > 1 %},...{% endif %}{% endif %}</td>
+      <td> #}
+      {# {{ article.authors[0].username }} #}
+      {# </td> #}
+      <td>
+        Création : {{ article.writenAt | date("d/m/y")}} <br>
+        Publication : {% if article.isPublished %}{{ article.publishedAt | date("d/m/y")}}{% else %}Non Publié{% endif %}
+      </td>
+      <td>{% if article.isPublished %}oui{% else %}non{% endif %}</td>
+      <td>          
+        <a  
+          class="btn-i filled-transparent"
+          href="{{ path('app_articles_remove', {'id': article.id}) }}"
+        ><img src="{{ asset('assets/imgs/icons/utilities/remove.svg') }}" alt="" width="15"></a>
+      </td>
+    </tr>
+    {% endfor %}
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,7 @@
+@mixin labels {
+  text-transform: uppercase;
+  font-size: var(--font-size-std);
+  font-weight: 500;
+  padding: 10px 10px 0 0;
+  min-width: 250px;
+}

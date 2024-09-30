@@ -1,0 +1,156 @@
+nav#main-navigation {
+  // local var
+  $aside-padding: 5px;
+  $nav-links-padding-top: 12px;
+  $nav-links-padding-right: 5px;
+  $nav-links-padding-bottom: 12px;
+  $nav-links-padding-left: 20px;
+  //
+
+  background-color: $darker;
+
+  box-sizing: border-box;
+
+  height: 100vh;
+
+  padding: $aside-padding;
+
+  display: grid;
+  grid-template-rows: 100px 1fr;
+  row-gap: 10px;
+
+  #nav-logo {
+    grid-row: 1;
+    height: 100px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0 10px;
+
+    &.bg-white {
+      border-radius: 3px;
+      border: 2px solid var(--light-grey);
+      box-sizing: border-box;
+    }
+
+    img {
+      max-height: 100px;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding: 5px 0px;
+    }
+  }
+
+  aside {
+    grid-row: 2;
+    background-color: $dark;
+
+    box-sizing: border-box;
+
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    position: relative;
+
+    overflow: visible;
+
+    .nav-link {
+      display: block;
+      color: $white;
+
+      @include ps(
+        $nav-links-padding-top, 
+        $nav-links-padding-right, 
+        $nav-links-padding-bottom, 
+        $nav-links-padding-left
+      );
+  
+      &.active {
+        background-color: $darker;
+      }
+      &:hover:not(.disabled) {
+        background-color: $transparent-hover;
+      }
+      &.disabled {
+        color: var(--grey);
+        cursor: not-allowed;
+      }
+    }
+
+    .nav-link.dropdown:hover + .sub-bar, nav.sub-bar:hover {
+      display: block;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(calc(100% - $aside-padding * 2));
+      width: var(--nav-width);
+
+
+    }
+
+    nav.sub-bar {
+      display: none;
+      height: inherit;
+  
+      box-shadow: 15px 0 30px 2px rgba($color: $darker, $alpha: 0.1);
+      margin: 0;
+      padding-left: calc($aside-padding * 2);
+      box-sizing: border-box;
+
+      aside {
+
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+        background-color: var(--lighter);
+
+        .sub-bar-title {
+          font-size: var(--font-size-lg);
+          font-weight: 500;
+
+          @include ps(
+            $nav-links-padding-top, 
+            $nav-links-padding-right, 
+            $nav-links-padding-bottom, 
+            $nav-links-padding-left
+          );
+
+          @include border-bottom(1px, solid, $lightless, 0px)
+        }
+
+        .sub-nav-link {
+          color: $darker;
+
+          @include ps(
+            $nav-links-padding-top, 
+            $nav-links-padding-right, 
+            $nav-links-padding-bottom, 
+            $nav-links-padding-left
+          );
+
+          &.active {
+            background-color: $lightless;
+          }
+          &:hover:not(.disabled) {
+            background-color: $light;
+          }
+          &.disabled {
+            color: var(--grey);
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+  }
+}

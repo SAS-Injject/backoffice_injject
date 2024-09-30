@@ -1,0 +1,34 @@
+@mixin no-border {
+  border: none;
+  outline: none;
+}
+
+@mixin border($thickness, $type, $color, $radius) {
+  border: $thickness $type $color;
+  border-radius: $radius;
+}
+
+@mixin border-top($thickness, $type, $color, $radius) {
+  border-top: $thickness $type $color;
+  border-radius: $radius;
+}
+
+@mixin border-bottom($thickness, $type, $color, $radius) {
+  border-bottom: $thickness $type $color;
+  border-radius: $radius;
+}
+
+@mixin border-right($thickness, $type, $color, $radius) {
+  border-right: $thickness $type $color;
+  border-radius: $radius;
+}
+
+@mixin border-left($thickness, $type, $color, $radius) {
+  border-left: $thickness $type $color;
+  border-radius: $radius;
+}
+
+@mixin outline($thickness, $type, $color, $radius) {
+  outline: $thickness $type $color;
+  border-radius: $radius;
+}

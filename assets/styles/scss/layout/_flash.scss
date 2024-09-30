@@ -1,0 +1,44 @@
+#flash-messages {
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+
+  width: 400px;
+  background-color: $lighter;
+
+  .flash-item { 
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+
+    box-sizing: border-box;
+
+    @include py(10px);
+    @include px(20px);
+
+    cursor: pointer;
+
+    p {
+      text-wrap: wrap; 
+      white-space: normal;
+    }
+  }
+
+  .flash-item.flash-success {
+    @include border(2px, solid, $icons-success, 5px);
+    background-color: rgba($color: $icons-success, $alpha: 0.2);
+  }
+
+  .flash-item.flash-error {
+    @include border(2px, solid, $icons-error, 5px);
+    background-color: rgba($color: $icons-error, $alpha: 0.2);
+  }
+}

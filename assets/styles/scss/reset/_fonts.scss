@@ -1,0 +1,51 @@
+* {
+  .fc-main {
+    color: var(--main);
+  }
+
+  @each $size, $value in $text-size {
+    --font-size-#{$size}: #{$value};
+    .fs-#{$size}{
+      font-size: #{$value};
+    } 
+  }
+
+  @each $color, $value in $theme-colors {
+    .fc-#{$color} {
+      color: #{$value};
+    }
+  }
+
+  @each $color, $value in $widgets-colors {
+    .fc-#{$color} {
+      color: #{$value};
+    }
+  }
+
+  @each $weight, $value in $text-thickness {
+    .fw-#{$weight} {
+      font-weight: #{$value};
+    }
+  }
+
+  @each $color, $value in $shades-colors {
+    .fc-#{$color} {
+      color: #{$value};
+    }
+  }
+
+  @each $align, $value in $text-align {
+    .ta-#{$align} {
+      text-align: #{$value};
+    }
+  }
+
+  @each $index, $size, $weight, $height, $spacing in $title-format {
+    h#{$index}{
+       font-size: #{$size};
+       font-weight: #{$weight};
+       line-height: #{$height};
+       letter-spacing: #{$spacing};
+    }
+  }
+}

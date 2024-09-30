@@ -1,0 +1,61 @@
+@mixin p($value) {
+  padding: $value;
+}
+
+@mixin ps($pt, $pr, $pb, $pl) {
+  padding: $pt $pr $pb $pl;
+}
+
+@mixin px($value) {
+  padding-left: $value;
+  padding-right: $value;
+}
+
+@mixin py($value) {
+  padding-bottom: $value;
+  padding-top: $value;
+}
+
+@mixin pl($value) {
+  padding-left: $value;
+}
+
+@mixin pr($value) {
+  padding-right: $value;
+}
+
+@mixin pt($value) {
+  padding-top: $value;
+}
+
+@mixin pb($value) {
+  padding-bottom: $value;
+}
+
+*{
+  @each $padding, $value in $paddings {
+    .p-#{$padding} {
+      padding: #{$value};
+    }
+    .px-#{$padding} {
+      padding-right: #{$value};
+      padding-left: #{$value};
+    }
+    .py-#{$padding} {
+      padding-top: #{$value};
+      padding-bottom: #{$value};
+    }
+    .pt-#{$padding} {
+      padding-top: #{$value};
+    }
+    .pb-#{$padding} {
+      padding-bottom: #{$value};
+    }
+    .pr-#{$padding} {
+      padding-right: #{$value};
+    }
+    .pl-#{$padding} {
+      padding-left: #{$value};
+    }
+  }
+}

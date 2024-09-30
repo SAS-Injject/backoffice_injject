@@ -1,13 +1,10 @@
-<div class="flash-message">
-  {% for label, messages in app.flashes %}
-    {% for message in messages %}
-      <div class="alert alert-{{ label }} alert-dismissible m-1" role="alert">
-        <div class="alert-message">
-          <img src="{{ asset('assets/svgs/'~ label ~'.svg') }}" alt="" srcset="" width="17">
-          {{ message|raw }}
-        </div>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    {% endfor %}
+<div id="flash-messages">
+{% for label, messages in app.flashes %}
+  {% for message in messages %}
+    <div class="flash-item flash-{{label}}">
+      <img src="{{ asset("assets/imgs/icons/utilities/" ~ label ~".svg") }}" alt="" width="25">
+      <p>{{ message }}</p>
+    </div>
   {% endfor %}
+{% endfor %}
 </div>

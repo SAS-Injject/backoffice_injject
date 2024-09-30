@@ -1,0 +1,57 @@
+@mixin m($value) {
+  margin: $value;
+}
+
+@mixin mx($value) {
+  margin-left: $value;
+  margin-right: $value;
+}
+
+@mixin my($value) {
+  margin-bottom: $value;
+  margin-top: $value;
+}
+
+@mixin ml($value) {
+  margin-left: $value;
+}
+
+@mixin mr($value) {
+  margin-right: $value;
+}
+
+@mixin mt($value) {
+  margin-top: $value;
+}
+
+@mixin mb($value) {
+  margin-bottom: $value;
+}
+
+*{
+  @each $margin, $value in $margins {
+    .m-#{$margin} {
+      margin: #{$value};
+    }
+    .mx-#{$margin} {
+      margin-right: #{$value};
+      margin-left: #{$value};
+    }
+    .my-#{$margin} {
+      margin-top: #{$value};
+      margin-bottom: #{$value};
+    }
+    .mt-#{$margin} {
+      margin-top: #{$value};
+    }
+    .mb-#{$margin} {
+      margin-bottom: #{$value};
+    }
+    .mr-#{$margin} {
+      margin-right: #{$value};
+    }
+    .ml-#{$margin} {
+      margin-left: #{$value};
+    }
+  }
+}

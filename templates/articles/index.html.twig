@@ -1,13 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ArticlesController!{% endblock %}
+{% block title %}Portail Injject Marketing - Articles{% endblock %}
+
+{% block javascripts %}
+<script defer src="{{ asset("assets/js/tableLineLink.js") }}"></script>
+{% endblock %}
 
 {% block body %}
-<main>
-{% for article in articles %}
-<p>
-  {{ article.title}}
-</p>
-{% endfor %}
-</main>
+
+  {% set add_path = "app_articles_add" %}
+
+  {% set path = 'app_articles' %}
+  {% set pages = pages %}
+  {% set currentPage = page %}
+
+  {% include "articles/_partials/_list.html.twig" %}
 {% endblock %}

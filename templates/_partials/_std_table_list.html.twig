@@ -1,18 +1,8 @@
 <section class="section-table">
-  <div class="align-self-start w-100 d-flex justify-content-between align-items-center">
-    <h2 class="fs-3 text-uppercase">
+  <div class="table-title">
+    <h2 class="mb-lg">
        {% block ttitle %}{% endblock %}
     </h2>
-    {% if add_path is defined %}
-      {% if add_path == "" %}
-      {% else %}
-      <a class="btn-i btn-i-main text-bold-bold" href="{{ path(add_path) }}">
-        + Ajouter
-      </a>
-      {% endif %}
-    {% else %}
-    {% block addPath %}{% endblock %}
-    {% endif %}
   </div>
 
   <div class="table-recap">
@@ -30,14 +20,14 @@
   </div>
 
   <div class="table-wrapper"> 
-    <table class="table-i">
+    <table class="table">
       <thead class="">
         <tr>
-          <th class="text-center" scope="col" width="150px">ID</th>
+          <th class="center" scope="col" width="100px">ID</th>
           {% for column in columns %}
             <th scope="col">{{ column }}</th>
           {% endfor %}
-          <th scope="col" width="100px"></th>
+          <th scope="col" width="50px"></th>
         </tr>
       </thead>
       <tbody class="">
