@@ -1,0 +1,52 @@
+@mixin base-position($type, $top, $left) {
+  position: $type;
+  top: $top;
+  left: $left
+}
+
+$positions: (
+  "absolute": absolute,
+  "fixed": fixed,
+  "relative": relative,
+  "sticky": sticky
+);
+
+$gaps: (
+  "0": 0px,
+  "min": 5px,
+  "xs": 10px,
+  "sm": 13px,
+  "std": 18px,
+  "md": 25px,
+  "lg": 35px,
+  "xl": 50px,
+  "max": 75px
+);
+
+* {
+
+  @each $position, $value in $positions {
+    .position-#{$position} {
+      position: $value;
+    }
+  }
+
+  @each $gap, $value in $gaps {
+    .top-#{$gap} {
+      top: $value;
+    }
+
+    .left-#{$gap} {
+      left: $value;
+    }
+
+    .right-#{$gap} {
+      right: $value;
+    }
+
+    .bottom-#{$gap} {
+      bottom: $value;
+    }
+  }
+
+}

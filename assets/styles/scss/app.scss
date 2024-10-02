@@ -14,9 +14,15 @@
 @import "mixins/login_title";
 @import "mixins/input_form";
 @import "mixins/texts";
+@import "mixins/position";
 
 @import "layout/main_content";
 @import "layout/navbar";
 @import "layout/status_bar";
 @import "layout/table";
 @import "layout/flash";
+@import "layout/buttons";
+@import "layout/checkbox";
+@import "layout/inputs";
+@import "layout/top-shortcut";
+@import "layout/login";

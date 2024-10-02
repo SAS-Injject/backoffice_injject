@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portail Injject Marketing - Articles Categories{% endblock %}
+
+{% block deferjavascripts %}
+<script src="{{ asset("assets/js/tableLineLink.js") }}"></script>
+<script src="{{ asset("assets/js/remove_validator.js") }}"></script>
+{% endblock %}
+
+{% block body %}
+
+  {% set add_path = "app_articles_categories_add" %}
+
+  {% set path = 'app_articles_categories' %}
+  {% set pages = pages %}
+  {% set currentPage = page %}
+
+  {% include "articles/_partials/_list_categories.html.twig" %}
+{% endblock %}

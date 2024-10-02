@@ -1,0 +1,194 @@
+.btn-test {
+  display: inline-block;
+
+  background-color: var(--main);
+  color: var(--main-balance);
+  @include border(1px, solid, var(--main), 0px);
+
+  &:hover {
+    background-color: var(--main-hover);
+    color: var(--main-hover-balance);
+    @include border(1px, solid, var(--main-hover), 0px);
+  }
+
+  &:active {
+    background-color: var(--main-active);
+    color: var(--main-active-balance);
+    @include border(1px, solid, var(--main-active), 0px);
+  }
+
+  &:disabled {
+    background-color: $disabled;
+    color: $disabled-balance;
+    @include border(1px, solid, $disabled, 0px);
+  }
+}
+
+.btn {
+  display: inline-block;
+
+  @include py(6px);
+  @include px(12px);
+  @include mx(auto);
+
+  $borderRadius: 3px;
+
+  text-decoration: none;
+  width: fit-content;
+
+  transition: all 0.3s ease;
+
+  font-size: var(--font-size-std);
+
+  cursor: pointer;
+
+  &.filled-main {
+    background-color: var(--main);
+    color: var(--main-balance);
+    @include border(1px, solid, var(--main), $borderRadius);
+
+    &:hover {
+      background-color: var(--main-hover);
+      color: var(--main-hover-balance);
+      @include border(1px, solid, var(--main-hover), $borderRadius);
+    }
+
+    &:active {
+      background-color: var(--main-active);
+      color: var(--main-active-balance);
+      @include border(1px, solid, var(--main-active), $borderRadius);
+    }
+
+    &:disabled {
+      background-color: $disabled;
+      color: $disabled-balance;
+      @include border(1px, solid, $disabled, $borderRadius);
+    }
+  }
+
+  @each $color, $value in $theme-colors {
+    &.filled-#{$color} {
+  
+      background-color: $value;
+      color: var(--#{$color}-balance);
+      @include border(1px, solid, $value, $borderRadius);
+  
+      &:hover {
+        background-color: var(--#{$color}-hover);
+        color: var(--#{$color}-hover-balance);
+        @include border(1px, solid, var(--#{$color}-hover), $borderRadius);
+      }
+  
+      &:active {
+        background-color: var(--#{$color}-active);
+        color: var(--#{$color}-active-balance);
+        @include border(1px, solid, var(--#{$color}-active), $borderRadius);
+      }
+
+      &:disabled {
+        background-color: $disabled;
+        color: $disabled-balance;
+        @include border(1px, solid, $disabled, $borderRadius);
+      }
+    }
+  }
+
+  &.btn-main {
+  
+    background-color: $white;
+    color: var(--main);
+    @include border(1px, solid, var(--main), $borderRadius);
+
+    &:hover {
+      background-color: var(--main-hover);
+      color: var(--main-hover-balance);
+      @include border(1px, solid, var(--main-hover), $borderRadius);
+    }
+
+    &:active {
+      background-color: var(--main-active);
+      color: var(--main-active-balance);
+      @include border(1px, solid, var(--main-active), $borderRadius);
+    }
+
+    &:disabled {
+      background-color: $white;
+      color: $disabled;
+      @include border(1px, solid, $disabled, $borderRadius);
+    }
+  }
+
+  @each $color, $value in $theme-colors {
+    &.btn-#{$color} {
+  
+      background-color: $white;
+      color: var(--#{$color});
+      @include border(1px, solid, $value, $borderRadius);
+  
+      &:hover {
+        background-color: var(--#{$color}-hover);
+        color: var(--#{$color}-hover-balance);
+        @include border(1px, solid, var(--#{$color}-hover), $borderRadius);
+      }
+  
+      &:active {
+        background-color: var(--#{$color}-active);
+        color: var(--#{$color}-active-balance);
+        @include border(1px, solid, var(--#{$color}-active), $borderRadius);
+      }
+  
+      &:disabled {
+        background-color: $white;
+        color: $disabled;
+        @include border(1px, solid, $disabled, $borderRadius);
+      }
+    }
+  }
+
+  @each $margin, $value in $margins {
+    &.marged-#{$margin} {
+      margin: #{$value};
+    }
+    &.margedx-#{$margin} {
+      margin-right: #{$value};
+      margin-left: #{$value};
+    }
+    &.margedy-#{$margin} {
+      margin-top: #{$value};
+      margin-bottom: #{$value};
+    }
+    &.margedt-#{$margin} {
+      margin-top: #{$value};
+    }
+    &.margedb-#{$margin} {
+      margin-bottom: #{$value};
+    }
+    &.margedr-#{$margin} {
+      margin-right: #{$value};
+    }
+    &.margedl-#{$margin} {
+      margin-left: #{$value};
+    }
+  }
+
+  &.btn-sm {
+    @include py(3px);
+    @include px(6px);
+
+    font-size: var(--font-size-sm);
+  }
+
+  &.btn-md {
+    @include py(7px);
+    @include px(14px);
+
+    font-size: var(--font-size-md);
+  }
+}
+
+
+
+
+
+
+

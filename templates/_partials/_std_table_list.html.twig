@@ -10,14 +10,16 @@
     {% for stats in recap %}
       <div class="table-recap-item">
         <div class="table-recap-item-title">
-          <img height="20px" src="{{ asset('assets/imgs/IconRecap/' ~ stats.icon) }}"/> 
+          <img height="20px" src="{{ asset('assets/imgs/icons/utilities/' ~ stats.icon) }}"/> 
           <h4>{{ stats.title }}</h4>
         </div>
-        <p class="table-recap-item-value">{{ stats.value }}  <span>{{ itemName }}{% if stats.value > 1 %}s{% endif %}</span></p>
+        <p class="table-recap-item-value">{{ stats.value }}  <span>{{ stats.item }}{% if stats.value > 1 %}s{% endif %}</span></p>
       </div>
     {% endfor %}
   {% endif %}
   </div>
+
+  {% block tfilter %}{% endblock %}
 
   <div class="table-wrapper"> 
     <table class="table">

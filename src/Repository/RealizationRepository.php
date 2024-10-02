@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Realization;
+use App\Traits\EntityFindAllPaginatedTrait;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -11,6 +12,8 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class RealizationRepository extends ServiceEntityRepository
 {
+  use EntityFindAllPaginatedTrait;
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Realization::class);

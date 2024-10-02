@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\RealizationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: RealizationRepository::class)]
@@ -38,6 +39,15 @@ class Realization
      */
     #[ORM\ManyToMany(targetEntity: RealizationCategories::class, inversedBy: 'realizations')]
     private Collection $categories;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $context = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $task = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $answer = null;
 
     public function __construct()
     {
@@ -91,7 +101,7 @@ class Realization
         return $this->is_published;
     }
 
-    public function setPublished(bool $is_published): static
+    public function setIsPublished(bool $is_published): static
     {
         $this->is_published = $is_published;
 
@@ -148,6 +158,42 @@ class Realization
     public function removeCategory(RealizationCategories $category): static
     {
         $this->categories->removeElement($category);
+
+        return $this;
+    }
+
+    public function getContext(): ?string
+    {
+        return $this->context;
+    }
+
+    public function setContext(string $context): static
+    {
+        $this->context = $context;
+
+        return $this;
+    }
+
+    public function getTask(): ?string
+    {
+        return $this->task;
+    }
+
+    public function setTask(string $task): static
+    {
+        $this->task = $task;
+
+        return $this;
+    }
+
+    public function getAnswer(): ?string
+    {
+        return $this->answer;
+    }
+
+    public function setAnswer(string $answer): static
+    {
+        $this->answer = $answer;
 
         return $this;
     }

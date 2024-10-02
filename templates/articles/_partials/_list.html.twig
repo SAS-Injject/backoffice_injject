@@ -2,9 +2,13 @@
 
 {% block ttitle %}Listes des Articles{% endblock %}
 
+{% block tfilter %}
+<a class="btn filled-main btn-sm" href="{{ path('app_articles_categories') }}">Categories</a>
+{% endblock %}
+
 {% block tbody %}
   <tr class="line-link" data-href="{{ path('app_articles_add') }}">
-    <td scope='row' colspan="5" class="center fw-bold fc-main">Nouvel Articles</td>
+    <td scope='row' colspan="6" class="center fw-bold fc-main">Nouvel Articles</td>
   </tr>
   {% if articles|length > 0 %}
     {% for article in articles %}
@@ -23,10 +27,12 @@
         Publication : {% if article.isPublished %}{{ article.publishedAt | date("d/m/y")}}{% else %}Non Publié{% endif %}
       </td>
       <td>{% if article.isPublished %}oui{% else %}non{% endif %}</td>
+      <td>{{ article.seen }}</td>
       <td>          
         <a  
           class="btn-i filled-transparent"
           href="{{ path('app_articles_remove', {'id': article.id}) }}"
+          data-remove='{{ article.id }}'
         ><img src="{{ asset('assets/imgs/icons/utilities/remove.svg') }}" alt="" width="15"></a>
       </td>
     </tr>

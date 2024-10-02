@@ -64,6 +64,9 @@ class Articles
     #[ORM\Column(length: 255)]
     private ?string $thumbnail_legend = null;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $summary = null;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -128,7 +131,7 @@ class Articles
         return $this->is_important;
     }
 
-    public function setImportant(bool $is_important): static
+    public function setIsImportant(bool $is_important): static
     {
         $this->is_important = $is_important;
 
@@ -152,7 +155,7 @@ class Articles
         return $this->is_published;
     }
 
-    public function setPublished(bool $is_published): static
+    public function setIsPublished(bool $is_published): static
     {
         $this->is_published = $is_published;
 
@@ -263,6 +266,18 @@ class Articles
     public function setThumbnailLegend(string $thumbnail_legend): static
     {
         $this->thumbnail_legend = $thumbnail_legend;
+
+        return $this;
+    }
+
+    public function getSummary(): ?string
+    {
+        return $this->summary;
+    }
+
+    public function setSummary(string $summary): static
+    {
+        $this->summary = $summary;
 
         return $this;
     }

@@ -2,8 +2,9 @@
 
 {% block title %}Portail Injject Marketing - Articles{% endblock %}
 
-{% block javascripts %}
-<script defer src="{{ asset("assets/js/tableLineLink.js") }}"></script>
+{% block deferjavascripts %}
+<script src="{{ asset("assets/js/tableLineLink.js") }}"></script>
+<script src="{{ asset("assets/js/remove_validator.js") }}"></script>
 {% endblock %}
 
 {% block body %}
@@ -13,6 +14,6 @@
   {% set path = 'app_articles' %}
   {% set pages = pages %}
   {% set currentPage = page %}
-
+  
   {% include "articles/_partials/_list.html.twig" %}
 {% endblock %}

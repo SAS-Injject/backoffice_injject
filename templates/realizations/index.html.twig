@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portail Injject Marketing - Réalisations{% endblock %}
+
+{% block deferjavascripts %}
+<script src="{{ asset("assets/js/tableLineLink.js") }}"></script>
+<script src="{{ asset("assets/js/remove_validator.js") }}"></script>
+{% endblock %}
+
+{% block body %}
+
+  {% set add_path = "app_realizations_add" %}
+
+  {% set path = 'app_realizations' %}
+  {% set pages = pages %}
+  {% set currentPage = page %}
+  
+  {% include "realizations/_partials/_list.html.twig" %}
+{% endblock %}

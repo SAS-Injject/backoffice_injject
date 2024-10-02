@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portail Injject Marketing - Articles{% endblock %}
+
+{% block javascripts %}
+{% endblock %}
+{% block deferjavascripts %}
+{% endblock %}
+
+{% block body %}
+  {{ form_start (form, {'attr': {'class': 'form', 'id': 'category_form'}}) }}
+    <a class="btn filled-main btn-sm" href="{{ path('app_articles_categories') }}">Retour</a>
+    <div class="flex flexd-row flexj-sb flexa-c">
+      <h1>{{ title_form|default("Formulaire") }}</h1>
+      <div>
+        <input class="btn filled-main btn-md" type="submit" name="save" value="Sauvegarder" form="category_form">
+        <input class="btn filled-main btn-md" type="submit" name="saveandquit" value="Sauvegarder et Quitter" form="category_form">
+      </div>
+    </div>
+
+    {% include "_partials/_form.html.twig" %}
+  {{ form_end (form)}}
+{% endblock %}

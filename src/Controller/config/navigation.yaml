@@ -13,7 +13,7 @@ navigation:
         href: "app_articles"
         role: "ROLE_USER"
       - label: "Réalisations"
-        href: "app_realization"
+        href: "app_realizations"
         role: "ROLE_USER"
   - label: "Configuration"
     name: configuration

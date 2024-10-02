@@ -1,0 +1,13 @@
+<div class="input-container">
+  <div class="input-labelled {{ type }}">
+    {{form_label(input, null ,{'label_attr': {'class': '' } }) }}
+    <div class="checkbox-wrapper-6">    
+      {{form_widget(input, {'attr': {'class': 'tgl tgl-light'} }) }} 
+      <label class="tgl-btn" for="{{ input.vars.id }}">
+    </div>
+    <div class="errors-list">
+      {{form_errors(input, {'attr': {'class': ''} }) }} 
+    </div>
+    {{form_help(input, {'attr': {'class': ''} }) }}
+  </div>
+</div>

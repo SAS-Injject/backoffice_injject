@@ -19,7 +19,7 @@ class ArticlesCategories
     private ?string $label = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $acount = null;
+    private ?string $account = null;
 
     /**
      * @var Collection<int, Articles>
@@ -49,14 +49,14 @@ class ArticlesCategories
         return $this;
     }
 
-    public function getAcount(): ?string
+    public function getAccount(): ?string
     {
-        return $this->acount;
+        return $this->account;
     }
 
-    public function setAcount(string $acount): static
+    public function setAccount(string $account): static
     {
-        $this->acount = $acount;
+        $this->account = $account;
 
         return $this;
     }

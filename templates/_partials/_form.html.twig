@@ -1,0 +1,15 @@
+{% for input in form %}
+  {% if input.vars.name is same as("_token")  %}{% else %}
+    {% if input.vars.block_prefixes[1] in ['checkbox', 'radio'] %}
+      {% include "_partials/_form_choice.html.twig" with { type: input.vars.block_prefixes[1] }%}
+    {% elseif input.vars.block_prefixes[1] in ['choice'] and input.vars.attr['data-tselect'] is defined %}
+      {% include "_partials/_form_choice_tselect.html.twig" with { type: input.vars.block_prefixes[1] }%}
+    {% elseif input.vars.block_prefixes[1] in ['file'] and input.vars.attr['data-drop'] is defined %}
+      {% include "_partials/_form_input_img.html.twig" %}
+    {% elseif input.vars.block_prefixes[1] in ['text'] and input.vars.attr['data-coloris'] is defined %}
+      {# {% include "_partials/form/input_color_picker.html.twig" %} #}
+    {% else %}
+      {% include "_partials/_form_input_text.html.twig" %}
+    {% endif %}
+  {% endif %}
+{% endfor %}

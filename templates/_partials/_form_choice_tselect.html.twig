@@ -1,0 +1,25 @@
+<div class="input-container full-width">
+  <div class="input-labelled">
+    {{form_label(input, null ,{'label': input.vars.label,'label_attr': {'class': '' } }) }}
+    <div class="input-body">
+      <div class="errors-list">
+        {{form_errors(input, {'attr': {'class': ''} }) }} 
+      </div> 
+      {% if input.vars.attr['data-flat-widget'] is defined %}
+        <select name="{{ field_name(input) }}" class="tselect" id="{{ input.vars.id }}"
+          {% for key, attr in input.vars.attr %}{{ key }} {% endfor %} 
+          {% if input.vars.multiple is same as(true) %}multiple{% endif %}
+          autocomplete="off"
+        >
+        {% for choice in input.vars.choices %}
+          <option value="{{ choice.value}}" {% if choice.value in input.vars.data %}selected{% endif %}>{{ choice.label }}</option>
+        {% endfor %}
+        </select>
+      {% else %}
+        {{form_widget(input, {'attr': {'class': '', 'autocomplete': 'off'} }) }}
+      {% endif %}
+
+      {{form_help(input, {'attr': {'class': ''} }) }}
+    </div>
+  </div>
+</div>

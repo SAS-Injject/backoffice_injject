@@ -13,6 +13,8 @@
         <script src="{{ asset('assets/bootstrap/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets/bootstrap/bootstrap.bundle.min.js') }}"></script>
         {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% block javascripts %}
+        {% endblock %}
 
     </head>
     <body>
@@ -25,9 +27,13 @@
         {% include "_partials/_actions.html.twig" %}
         <div class="page-content">{% block body %}{% endblock %}</div>
       </main>
+      {% include "_partials/_top_shortcut.html.twig" %}
     </body>
     <script src="/assets/js/current_date.js"></script>
-    <script src="/assets/js/flashes/flash_messages.js"></script>
-    {% block javascripts %}
+    <script src="/assets/js/flash_messages.js"></script>
+    {% block deferjavascripts %}
     {% endblock %}
+    <script src="{{ asset("assets/js/topShortcut.js") }}"></script>
+    <script>
+    window.scrollY = 0;
 </html>

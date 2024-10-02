@@ -997,6 +997,29 @@ template {
   padding-left: 35px;
 }
 
+* .m-auto {
+  margin: auto;
+}
+* .mx-auto {
+  margin-right: auto;
+  margin-left: auto;
+}
+* .my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+* .mt-auto {
+  margin-top: auto;
+}
+* .mb-auto {
+  margin-bottom: auto;
+}
+* .mr-auto {
+  margin-right: auto;
+}
+* .ml-auto {
+  margin-left: auto;
+}
 * .m-min {
   margin: 5px;
 }
@@ -1180,6 +1203,127 @@ template {
 }
 * .ml-max {
   margin-left: 75px;
+}
+
+* .position-absolute {
+  position: absolute;
+}
+* .position-fixed {
+  position: fixed;
+}
+* .position-relative {
+  position: relative;
+}
+* .position-sticky {
+  position: sticky;
+}
+* .top-0 {
+  top: 0px;
+}
+* .left-0 {
+  left: 0px;
+}
+* .right-0 {
+  right: 0px;
+}
+* .bottom-0 {
+  bottom: 0px;
+}
+* .top-min {
+  top: 5px;
+}
+* .left-min {
+  left: 5px;
+}
+* .right-min {
+  right: 5px;
+}
+* .bottom-min {
+  bottom: 5px;
+}
+* .top-xs {
+  top: 10px;
+}
+* .left-xs {
+  left: 10px;
+}
+* .right-xs {
+  right: 10px;
+}
+* .bottom-xs {
+  bottom: 10px;
+}
+* .top-sm {
+  top: 13px;
+}
+* .left-sm {
+  left: 13px;
+}
+* .right-sm {
+  right: 13px;
+}
+* .bottom-sm {
+  bottom: 13px;
+}
+* .top-std {
+  top: 18px;
+}
+* .left-std {
+  left: 18px;
+}
+* .right-std {
+  right: 18px;
+}
+* .bottom-std {
+  bottom: 18px;
+}
+* .top-md {
+  top: 25px;
+}
+* .left-md {
+  left: 25px;
+}
+* .right-md {
+  right: 25px;
+}
+* .bottom-md {
+  bottom: 25px;
+}
+* .top-lg {
+  top: 35px;
+}
+* .left-lg {
+  left: 35px;
+}
+* .right-lg {
+  right: 35px;
+}
+* .bottom-lg {
+  bottom: 35px;
+}
+* .top-xl {
+  top: 50px;
+}
+* .left-xl {
+  left: 50px;
+}
+* .right-xl {
+  right: 50px;
+}
+* .bottom-xl {
+  bottom: 50px;
+}
+* .top-max {
+  top: 75px;
+}
+* .left-max {
+  left: 75px;
+}
+* .right-max {
+  right: 75px;
+}
+* .bottom-max {
+  bottom: 75px;
 }
 
 main {
@@ -1491,6 +1635,51 @@ nav#main-navigation aside nav.sub-bar aside .sub-nav-link.disabled {
   text-align: start;
 }
 
+.table-recap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-self: flex-start;
+  margin: 20px 0;
+  column-gap: 15px;
+  cursor: default;
+}
+.table-recap .table-recap-item {
+  width: fit-content;
+  min-width: 175px;
+  border: 1px solid #d3d3d3;
+  border-radius: 7px;
+  padding: 8px;
+  transition: all 0.5s ease;
+}
+.table-recap .table-recap-item:hover {
+  box-shadow: 0 0 4px #aaaaaa;
+  transition: all 0.5s ease;
+}
+.table-recap .table-recap-item .table-recap-item-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 10px;
+}
+.table-recap .table-recap-item .table-recap-item-title h4 {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.table-recap .table-recap-item .table-recap-item-value {
+  text-align: end;
+  font-size: 22px;
+  margin: 0;
+  font-weight: 700;
+}
+.table-recap .table-recap-item .table-recap-item-value span {
+  font-size: 13px;
+  font-weight: 600;
+}
+
 #flash-messages {
   display: flex;
   flex-direction: column;
@@ -1527,4 +1716,894 @@ nav#main-navigation aside nav.sub-bar aside .sub-nav-link.disabled {
   border: 2px solid #D03310;
   border-radius: 5px;
   background-color: rgba(208, 51, 16, 0.2);
+}
+
+.btn-test {
+  display: inline-block;
+  background-color: var(--main);
+  color: var(--main-balance);
+  border: 1px solid var(--main);
+  border-radius: 0px;
+}
+.btn-test:hover {
+  background-color: var(--main-hover);
+  color: var(--main-hover-balance);
+  border: 1px solid var(--main-hover);
+  border-radius: 0px;
+}
+.btn-test:active {
+  background-color: var(--main-active);
+  color: var(--main-active-balance);
+  border: 1px solid var(--main-active);
+  border-radius: 0px;
+}
+.btn-test:disabled {
+  background-color: #a4a4a4;
+  color: #0a0a0a;
+  border: 1px solid #a4a4a4;
+  border-radius: 0px;
+}
+
+.btn, .input-framed .drop-container .input-file::file-selector-button {
+  display: inline-block;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  width: fit-content;
+  transition: all 0.3s ease;
+  font-size: var(--font-size-std);
+  cursor: pointer;
+}
+.btn.filled-main, .input-framed .drop-container .input-file::file-selector-button {
+  background-color: var(--main);
+  color: var(--main-balance);
+  border: 1px solid var(--main);
+  border-radius: 3px;
+}
+.btn.filled-main:hover, .input-framed .drop-container .input-file:hover::file-selector-button {
+  background-color: var(--main-hover);
+  color: var(--main-hover-balance);
+  border: 1px solid var(--main-hover);
+  border-radius: 3px;
+}
+.btn.filled-main:active, .input-framed .drop-container .input-file:active::file-selector-button {
+  background-color: var(--main-active);
+  color: var(--main-active-balance);
+  border: 1px solid var(--main-active);
+  border-radius: 3px;
+}
+.btn.filled-main:disabled, .input-framed .drop-container .input-file:disabled::file-selector-button {
+  background-color: #a4a4a4;
+  color: #0a0a0a;
+  border: 1px solid #a4a4a4;
+  border-radius: 3px;
+}
+.btn.filled-blue, .input-framed .drop-container .filled-blue.input-file::file-selector-button {
+  background-color: #4a4aff;
+  color: var(--blue-balance);
+  border: 1px solid #4a4aff;
+  border-radius: 3px;
+}
+.btn.filled-blue:hover, .input-framed .drop-container .filled-blue.input-file:hover::file-selector-button {
+  background-color: var(--blue-hover);
+  color: var(--blue-hover-balance);
+  border: 1px solid var(--blue-hover);
+  border-radius: 3px;
+}
+.btn.filled-blue:active, .input-framed .drop-container .filled-blue.input-file:active::file-selector-button {
+  background-color: var(--blue-active);
+  color: var(--blue-active-balance);
+  border: 1px solid var(--blue-active);
+  border-radius: 3px;
+}
+.btn.filled-blue:disabled, .input-framed .drop-container .filled-blue.input-file:disabled::file-selector-button {
+  background-color: #a4a4a4;
+  color: #0a0a0a;
+  border: 1px solid #a4a4a4;
+  border-radius: 3px;
+}
+.btn.filled-red, .input-framed .drop-container .filled-red.input-file::file-selector-button {
+  background-color: #ff4a4a;
+  color: var(--red-balance);
+  border: 1px solid #ff4a4a;
+  border-radius: 3px;
+}
+.btn.filled-red:hover, .input-framed .drop-container .filled-red.input-file:hover::file-selector-button {
+  background-color: var(--red-hover);
+  color: var(--red-hover-balance);
+  border: 1px solid var(--red-hover);
+  border-radius: 3px;
+}
+.btn.filled-red:active, .input-framed .drop-container .filled-red.input-file:active::file-selector-button {
+  background-color: var(--red-active);
+  color: var(--red-active-balance);
+  border: 1px solid var(--red-active);
+  border-radius: 3px;
+}
+.btn.filled-red:disabled, .input-framed .drop-container .filled-red.input-file:disabled::file-selector-button {
+  background-color: #a4a4a4;
+  color: #0a0a0a;
+  border: 1px solid #a4a4a4;
+  border-radius: 3px;
+}
+.btn.filled-green, .input-framed .drop-container .filled-green.input-file::file-selector-button {
+  background-color: #4aff4a;
+  color: var(--green-balance);
+  border: 1px solid #4aff4a;
+  border-radius: 3px;
+}
+.btn.filled-green:hover, .input-framed .drop-container .filled-green.input-file:hover::file-selector-button {
+  background-color: var(--green-hover);
+  color: var(--green-hover-balance);
+  border: 1px solid var(--green-hover);
+  border-radius: 3px;
+}
+.btn.filled-green:active, .input-framed .drop-container .filled-green.input-file:active::file-selector-button {
+  background-color: var(--green-active);
+  color: var(--green-active-balance);
+  border: 1px solid var(--green-active);
+  border-radius: 3px;
+}
+.btn.filled-green:disabled, .input-framed .drop-container .filled-green.input-file:disabled::file-selector-button {
+  background-color: #a4a4a4;
+  color: #0a0a0a;
+  border: 1px solid #a4a4a4;
+  border-radius: 3px;
+}
+.btn.filled-disabled, .input-framed .drop-container .filled-disabled.input-file::file-selector-button {
+  background-color: #a4a4a4;
+  color: var(--disabled-balance);
+  border: 1px solid #a4a4a4;
+  border-radius: 3px;
+}
+.btn.filled-disabled:hover, .input-framed .drop-container .filled-disabled.input-file:hover::file-selector-button {
+  background-color: var(--disabled-hover);
+  color: var(--disabled-hover-balance);
+  border: 1px solid var(--disabled-hover);
+  border-radius: 3px;
+}
+.btn.filled-disabled:active, .input-framed .drop-container .filled-disabled.input-file:active::file-selector-button {
+  background-color: var(--disabled-active);
+  color: var(--disabled-active-balance);
+  border: 1px solid var(--disabled-active);
+  border-radius: 3px;
+}
+.btn.filled-disabled:disabled, .input-framed .drop-container .filled-disabled.input-file:disabled::file-selector-button {
+  background-color: #a4a4a4;
+  color: #0a0a0a;
+  border: 1px solid #a4a4a4;
+  border-radius: 3px;
+}
+.btn.filled-transparent, .input-framed .drop-container .filled-transparent.input-file::file-selector-button {
+  background-color: rgba(255, 255, 255, 0);
+  color: var(--transparent-balance);
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-radius: 3px;
+}
+.btn.filled-transparent:hover, .input-framed .drop-container .filled-transparent.input-file:hover::file-selector-button {
+  background-color: var(--transparent-hover);
+  color: var(--transparent-hover-balance);
+  border: 1px solid var(--transparent-hover);
+  border-radius: 3px;
+}
+.btn.filled-transparent:active, .input-framed .drop-container .filled-transparent.input-file:active::file-selector-button {
+  background-color: var(--transparent-active);
+  color: var(--transparent-active-balance);
+  border: 1px solid var(--transparent-active);
+  border-radius: 3px;
+}
+.btn.filled-transparent:disabled, .input-framed .drop-container .filled-transparent.input-file:disabled::file-selector-button {
+  background-color: #a4a4a4;
+  color: #0a0a0a;
+  border: 1px solid #a4a4a4;
+  border-radius: 3px;
+}
+.btn.btn-main, .input-framed .drop-container .btn-main.input-file::file-selector-button {
+  background-color: white;
+  color: var(--main);
+  border: 1px solid var(--main);
+  border-radius: 3px;
+}
+.btn.btn-main:hover, .input-framed .drop-container .btn-main.input-file:hover::file-selector-button {
+  background-color: var(--main-hover);
+  color: var(--main-hover-balance);
+  border: 1px solid var(--main-hover);
+  border-radius: 3px;
+}
+.btn.btn-main:active, .input-framed .drop-container .btn-main.input-file:active::file-selector-button {
+  background-color: var(--main-active);
+  color: var(--main-active-balance);
+  border: 1px solid var(--main-active);
+  border-radius: 3px;
+}
+.btn.btn-main:disabled, .input-framed .drop-container .btn-main.input-file:disabled::file-selector-button {
+  background-color: white;
+  color: #a4a4a4;
+  border: 1px solid #a4a4a4;
+  border-radius: 3px;
+}
+.btn.btn-blue, .input-framed .drop-container .btn-blue.input-file::file-selector-button {
+  background-color: white;
+  color: var(--blue);
+  border: 1px solid #4a4aff;
+  border-radius: 3px;
+}
+.btn.btn-blue:hover, .input-framed .drop-container .btn-blue.input-file:hover::file-selector-button {
+  background-color: var(--blue-hover);
+  color: var(--blue-hover-balance);
+  border: 1px solid var(--blue-hover);
+  border-radius: 3px;
+}
+.btn.btn-blue:active, .input-framed .drop-container .btn-blue.input-file:active::file-selector-button {
+  background-color: var(--blue-active);
+  color: var(--blue-active-balance);
+  border: 1px solid var(--blue-active);
+  border-radius: 3px;
+}
+.btn.btn-blue:disabled, .input-framed .drop-container .btn-blue.input-file:disabled::file-selector-button {
+  background-color: white;
+  color: #a4a4a4;
+  border: 1px solid #a4a4a4;
+  border-radius: 3px;
+}
+.btn.btn-red, .input-framed .drop-container .btn-red.input-file::file-selector-button {
+  background-color: white;
+  color: var(--red);
+  border: 1px solid #ff4a4a;
+  border-radius: 3px;
+}
+.btn.btn-red:hover, .input-framed .drop-container .btn-red.input-file:hover::file-selector-button {
+  background-color: var(--red-hover);
+  color: var(--red-hover-balance);
+  border: 1px solid var(--red-hover);
+  border-radius: 3px;
+}
+.btn.btn-red:active, .input-framed .drop-container .btn-red.input-file:active::file-selector-button {
+  background-color: var(--red-active);
+  color: var(--red-active-balance);
+  border: 1px solid var(--red-active);
+  border-radius: 3px;
+}
+.btn.btn-red:disabled, .input-framed .drop-container .btn-red.input-file:disabled::file-selector-button {
+  background-color: white;
+  color: #a4a4a4;
+  border: 1px solid #a4a4a4;
+  border-radius: 3px;
+}
+.btn.btn-green, .input-framed .drop-container .btn-green.input-file::file-selector-button {
+  background-color: white;
+  color: var(--green);
+  border: 1px solid #4aff4a;
+  border-radius: 3px;
+}
+.btn.btn-green:hover, .input-framed .drop-container .btn-green.input-file:hover::file-selector-button {
+  background-color: var(--green-hover);
+  color: var(--green-hover-balance);
+  border: 1px solid var(--green-hover);
+  border-radius: 3px;
+}
+.btn.btn-green:active, .input-framed .drop-container .btn-green.input-file:active::file-selector-button {
+  background-color: var(--green-active);
+  color: var(--green-active-balance);
+  border: 1px solid var(--green-active);
+  border-radius: 3px;
+}
+.btn.btn-green:disabled, .input-framed .drop-container .btn-green.input-file:disabled::file-selector-button {
+  background-color: white;
+  color: #a4a4a4;
+  border: 1px solid #a4a4a4;
+  border-radius: 3px;
+}
+.btn.btn-disabled, .input-framed .drop-container .btn-disabled.input-file::file-selector-button {
+  background-color: white;
+  color: var(--disabled);
+  border: 1px solid #a4a4a4;
+  border-radius: 3px;
+}
+.btn.btn-disabled:hover, .input-framed .drop-container .btn-disabled.input-file:hover::file-selector-button {
+  background-color: var(--disabled-hover);
+  color: var(--disabled-hover-balance);
+  border: 1px solid var(--disabled-hover);
+  border-radius: 3px;
+}
+.btn.btn-disabled:active, .input-framed .drop-container .btn-disabled.input-file:active::file-selector-button {
+  background-color: var(--disabled-active);
+  color: var(--disabled-active-balance);
+  border: 1px solid var(--disabled-active);
+  border-radius: 3px;
+}
+.btn.btn-disabled:disabled, .input-framed .drop-container .btn-disabled.input-file:disabled::file-selector-button {
+  background-color: white;
+  color: #a4a4a4;
+  border: 1px solid #a4a4a4;
+  border-radius: 3px;
+}
+.btn.btn-transparent, .input-framed .drop-container .btn-transparent.input-file::file-selector-button {
+  background-color: white;
+  color: var(--transparent);
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-radius: 3px;
+}
+.btn.btn-transparent:hover, .input-framed .drop-container .btn-transparent.input-file:hover::file-selector-button {
+  background-color: var(--transparent-hover);
+  color: var(--transparent-hover-balance);
+  border: 1px solid var(--transparent-hover);
+  border-radius: 3px;
+}
+.btn.btn-transparent:active, .input-framed .drop-container .btn-transparent.input-file:active::file-selector-button {
+  background-color: var(--transparent-active);
+  color: var(--transparent-active-balance);
+  border: 1px solid var(--transparent-active);
+  border-radius: 3px;
+}
+.btn.btn-transparent:disabled, .input-framed .drop-container .btn-transparent.input-file:disabled::file-selector-button {
+  background-color: white;
+  color: #a4a4a4;
+  border: 1px solid #a4a4a4;
+  border-radius: 3px;
+}
+.btn.marged-auto, .input-framed .drop-container .marged-auto.input-file::file-selector-button {
+  margin: auto;
+}
+.btn.margedx-auto, .input-framed .drop-container .margedx-auto.input-file::file-selector-button {
+  margin-right: auto;
+  margin-left: auto;
+}
+.btn.margedy-auto, .input-framed .drop-container .margedy-auto.input-file::file-selector-button {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.btn.margedt-auto, .input-framed .drop-container .margedt-auto.input-file::file-selector-button {
+  margin-top: auto;
+}
+.btn.margedb-auto, .input-framed .drop-container .margedb-auto.input-file::file-selector-button {
+  margin-bottom: auto;
+}
+.btn.margedr-auto, .input-framed .drop-container .margedr-auto.input-file::file-selector-button {
+  margin-right: auto;
+}
+.btn.margedl-auto, .input-framed .drop-container .margedl-auto.input-file::file-selector-button {
+  margin-left: auto;
+}
+.btn.marged-min, .input-framed .drop-container .marged-min.input-file::file-selector-button {
+  margin: 5px;
+}
+.btn.margedx-min, .input-framed .drop-container .margedx-min.input-file::file-selector-button {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.btn.margedy-min, .input-framed .drop-container .margedy-min.input-file::file-selector-button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.btn.margedt-min, .input-framed .drop-container .margedt-min.input-file::file-selector-button {
+  margin-top: 5px;
+}
+.btn.margedb-min, .input-framed .drop-container .margedb-min.input-file::file-selector-button {
+  margin-bottom: 5px;
+}
+.btn.margedr-min, .input-framed .drop-container .margedr-min.input-file::file-selector-button {
+  margin-right: 5px;
+}
+.btn.margedl-min, .input-framed .drop-container .margedl-min.input-file::file-selector-button {
+  margin-left: 5px;
+}
+.btn.marged-xs, .input-framed .drop-container .marged-xs.input-file::file-selector-button {
+  margin: 10px;
+}
+.btn.margedx-xs, .input-framed .drop-container .margedx-xs.input-file::file-selector-button {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.btn.margedy-xs, .input-framed .drop-container .margedy-xs.input-file::file-selector-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.btn.margedt-xs, .input-framed .drop-container .margedt-xs.input-file::file-selector-button {
+  margin-top: 10px;
+}
+.btn.margedb-xs, .input-framed .drop-container .margedb-xs.input-file::file-selector-button {
+  margin-bottom: 10px;
+}
+.btn.margedr-xs, .input-framed .drop-container .margedr-xs.input-file::file-selector-button {
+  margin-right: 10px;
+}
+.btn.margedl-xs, .input-framed .drop-container .margedl-xs.input-file::file-selector-button {
+  margin-left: 10px;
+}
+.btn.marged-sm, .input-framed .drop-container .marged-sm.input-file::file-selector-button {
+  margin: 13px;
+}
+.btn.margedx-sm, .input-framed .drop-container .margedx-sm.input-file::file-selector-button {
+  margin-right: 13px;
+  margin-left: 13px;
+}
+.btn.margedy-sm, .input-framed .drop-container .margedy-sm.input-file::file-selector-button {
+  margin-top: 13px;
+  margin-bottom: 13px;
+}
+.btn.margedt-sm, .input-framed .drop-container .margedt-sm.input-file::file-selector-button {
+  margin-top: 13px;
+}
+.btn.margedb-sm, .input-framed .drop-container .margedb-sm.input-file::file-selector-button {
+  margin-bottom: 13px;
+}
+.btn.margedr-sm, .input-framed .drop-container .margedr-sm.input-file::file-selector-button {
+  margin-right: 13px;
+}
+.btn.margedl-sm, .input-framed .drop-container .margedl-sm.input-file::file-selector-button {
+  margin-left: 13px;
+}
+.btn.marged-std, .input-framed .drop-container .marged-std.input-file::file-selector-button {
+  margin: 18px;
+}
+.btn.margedx-std, .input-framed .drop-container .margedx-std.input-file::file-selector-button {
+  margin-right: 18px;
+  margin-left: 18px;
+}
+.btn.margedy-std, .input-framed .drop-container .margedy-std.input-file::file-selector-button {
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+.btn.margedt-std, .input-framed .drop-container .margedt-std.input-file::file-selector-button {
+  margin-top: 18px;
+}
+.btn.margedb-std, .input-framed .drop-container .margedb-std.input-file::file-selector-button {
+  margin-bottom: 18px;
+}
+.btn.margedr-std, .input-framed .drop-container .input-file::file-selector-button {
+  margin-right: 18px;
+}
+.btn.margedl-std, .input-framed .drop-container .margedl-std.input-file::file-selector-button {
+  margin-left: 18px;
+}
+.btn.marged-md, .input-framed .drop-container .marged-md.input-file::file-selector-button {
+  margin: 25px;
+}
+.btn.margedx-md, .input-framed .drop-container .margedx-md.input-file::file-selector-button {
+  margin-right: 25px;
+  margin-left: 25px;
+}
+.btn.margedy-md, .input-framed .drop-container .margedy-md.input-file::file-selector-button {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.btn.margedt-md, .input-framed .drop-container .margedt-md.input-file::file-selector-button {
+  margin-top: 25px;
+}
+.btn.margedb-md, .input-framed .drop-container .margedb-md.input-file::file-selector-button {
+  margin-bottom: 25px;
+}
+.btn.margedr-md, .input-framed .drop-container .margedr-md.input-file::file-selector-button {
+  margin-right: 25px;
+}
+.btn.margedl-md, .input-framed .drop-container .margedl-md.input-file::file-selector-button {
+  margin-left: 25px;
+}
+.btn.marged-lg, .input-framed .drop-container .marged-lg.input-file::file-selector-button {
+  margin: 35px;
+}
+.btn.margedx-lg, .input-framed .drop-container .margedx-lg.input-file::file-selector-button {
+  margin-right: 35px;
+  margin-left: 35px;
+}
+.btn.margedy-lg, .input-framed .drop-container .margedy-lg.input-file::file-selector-button {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+.btn.margedt-lg, .input-framed .drop-container .margedt-lg.input-file::file-selector-button {
+  margin-top: 35px;
+}
+.btn.margedb-lg, .input-framed .drop-container .margedb-lg.input-file::file-selector-button {
+  margin-bottom: 35px;
+}
+.btn.margedr-lg, .input-framed .drop-container .margedr-lg.input-file::file-selector-button {
+  margin-right: 35px;
+}
+.btn.margedl-lg, .input-framed .drop-container .margedl-lg.input-file::file-selector-button {
+  margin-left: 35px;
+}
+.btn.marged-xl, .input-framed .drop-container .marged-xl.input-file::file-selector-button {
+  margin: 50px;
+}
+.btn.margedx-xl, .input-framed .drop-container .margedx-xl.input-file::file-selector-button {
+  margin-right: 50px;
+  margin-left: 50px;
+}
+.btn.margedy-xl, .input-framed .drop-container .margedy-xl.input-file::file-selector-button {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.btn.margedt-xl, .input-framed .drop-container .margedt-xl.input-file::file-selector-button {
+  margin-top: 50px;
+}
+.btn.margedb-xl, .input-framed .drop-container .margedb-xl.input-file::file-selector-button {
+  margin-bottom: 50px;
+}
+.btn.margedr-xl, .input-framed .drop-container .margedr-xl.input-file::file-selector-button {
+  margin-right: 50px;
+}
+.btn.margedl-xl, .input-framed .drop-container .margedl-xl.input-file::file-selector-button {
+  margin-left: 50px;
+}
+.btn.marged-max, .input-framed .drop-container .marged-max.input-file::file-selector-button {
+  margin: 75px;
+}
+.btn.margedx-max, .input-framed .drop-container .margedx-max.input-file::file-selector-button {
+  margin-right: 75px;
+  margin-left: 75px;
+}
+.btn.margedy-max, .input-framed .drop-container .margedy-max.input-file::file-selector-button {
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+.btn.margedt-max, .input-framed .drop-container .margedt-max.input-file::file-selector-button {
+  margin-top: 75px;
+}
+.btn.margedb-max, .input-framed .drop-container .margedb-max.input-file::file-selector-button {
+  margin-bottom: 75px;
+}
+.btn.margedr-max, .input-framed .drop-container .margedr-max.input-file::file-selector-button {
+  margin-right: 75px;
+}
+.btn.margedl-max, .input-framed .drop-container .margedl-max.input-file::file-selector-button {
+  margin-left: 75px;
+}
+.btn.btn-sm, .input-framed .drop-container .btn-sm.input-file::file-selector-button {
+  padding-bottom: 3px;
+  padding-top: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-size: var(--font-size-sm);
+}
+.btn.btn-md, .input-framed .drop-container .btn-md.input-file::file-selector-button {
+  padding-bottom: 7px;
+  padding-top: 7px;
+  padding-left: 14px;
+  padding-right: 14px;
+  font-size: var(--font-size-md);
+}
+
+.checkbox-wrapper-6 .tgl {
+  display: none;
+}
+
+.checkbox-wrapper-6 .tgl,
+.checkbox-wrapper-6 .tgl:after,
+.checkbox-wrapper-6 .tgl:before,
+.checkbox-wrapper-6 .tgl *,
+.checkbox-wrapper-6 .tgl *:after,
+.checkbox-wrapper-6 .tgl *:before,
+.checkbox-wrapper-6 .tgl + .tgl-btn {
+  box-sizing: border-box;
+}
+
+.checkbox-wrapper-6 .tgl::-moz-selection,
+.checkbox-wrapper-6 .tgl:after::-moz-selection,
+.checkbox-wrapper-6 .tgl:before::-moz-selection,
+.checkbox-wrapper-6 .tgl *::-moz-selection,
+.checkbox-wrapper-6 .tgl *:after::-moz-selection,
+.checkbox-wrapper-6 .tgl *:before::-moz-selection,
+.checkbox-wrapper-6 .tgl + .tgl-btn::-moz-selection,
+.checkbox-wrapper-6 .tgl::selection,
+.checkbox-wrapper-6 .tgl:after::selection,
+.checkbox-wrapper-6 .tgl:before::selection,
+.checkbox-wrapper-6 .tgl *::selection,
+.checkbox-wrapper-6 .tgl *:after::selection,
+.checkbox-wrapper-6 .tgl *:before::selection,
+.checkbox-wrapper-6 .tgl + .tgl-btn::selection {
+  background: none;
+}
+
+.checkbox-wrapper-6 .tgl + .tgl-btn {
+  outline: 0;
+  display: block;
+  width: 4em;
+  height: 2em;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox-wrapper-6 .tgl + .tgl-btn:after,
+.checkbox-wrapper-6 .tgl + .tgl-btn:before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+}
+
+.checkbox-wrapper-6 .tgl + .tgl-btn:after {
+  left: 0;
+}
+
+.checkbox-wrapper-6 .tgl + .tgl-btn:before {
+  display: none;
+}
+
+.checkbox-wrapper-6 .tgl:checked + .tgl-btn:after {
+  left: 50%;
+}
+
+.checkbox-wrapper-6 .tgl-light + .tgl-btn {
+  background: #f0f0f0;
+  border-radius: 2em;
+  padding: 2px;
+  transition: all 0.4s ease;
+}
+
+.checkbox-wrapper-6 .tgl-light + .tgl-btn:after {
+  border-radius: 50%;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+.checkbox-wrapper-6 .tgl-light:checked + .tgl-btn {
+  background: #9FD6AE;
+}
+
+.input-alone {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.input-alone > label {
+  text-transform: uppercase;
+  font-size: var(--font-size-sm);
+}
+.input-alone input[type=text]:not([data-coloris=""]),
+.input-alone input[type=number],
+.input-alone input[type=password],
+.input-alone input[type=email],
+.input-alone input[type=tel],
+.input-alone input[type=date],
+.input-alone input[type=search],
+.input-alone textarea,
+.input-alone select:not(.tselect) {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  border: 1px solid #d3d3d3;
+  border-radius: 3px;
+  background: var(--white);
+  font-size: var(--font-size-md);
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: all 0.5s ease;
+  margin: 0;
+}
+.input-alone input[type=text]:not([data-coloris=""]):focus, .input-alone input[type=text]:not([data-coloris=""]):hover,
+.input-alone input[type=number]:focus,
+.input-alone input[type=number]:hover,
+.input-alone input[type=password]:focus,
+.input-alone input[type=password]:hover,
+.input-alone input[type=email]:focus,
+.input-alone input[type=email]:hover,
+.input-alone input[type=tel]:focus,
+.input-alone input[type=tel]:hover,
+.input-alone input[type=date]:focus,
+.input-alone input[type=date]:hover,
+.input-alone input[type=search]:focus,
+.input-alone input[type=search]:hover,
+.input-alone textarea:focus,
+.input-alone textarea:hover,
+.input-alone select:not(.tselect):focus,
+.input-alone select:not(.tselect):hover {
+  border: 1px solid #aaaaaa;
+  border-radius: 3px;
+}
+
+.input-labelled {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  color: #303030;
+  padding: 10px;
+  transition: all 0.5s ease;
+  box-sizing: border-box;
+}
+.input-labelled > label {
+  text-transform: uppercase;
+  font-size: var(--font-size-std);
+  font-weight: 500;
+  padding: 10px 10px 0 0;
+  min-width: 250px;
+  text-align: end;
+}
+.input-labelled:focus-within {
+  box-shadow: 0 0 10px -4px #F8F8F8;
+}
+.input-labelled input[type=text]:not([data-coloris=""]),
+.input-labelled input[type=number],
+.input-labelled input[type=password],
+.input-labelled input[type=email],
+.input-labelled input[type=tel],
+.input-labelled input[type=date],
+.input-labelled input[type=search],
+.input-labelled textarea,
+.input-labelled select:not(.tselect),
+.input-labelled .editor {
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  border: 1px solid #d3d3d3;
+  border-radius: 3px;
+  background: var(--white);
+  font-size: var(--font-size-md);
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: all 0.5s ease;
+}
+.input-labelled input[type=text]:not([data-coloris=""]):focus, .input-labelled input[type=text]:not([data-coloris=""]):hover,
+.input-labelled input[type=number]:focus,
+.input-labelled input[type=number]:hover,
+.input-labelled input[type=password]:focus,
+.input-labelled input[type=password]:hover,
+.input-labelled input[type=email]:focus,
+.input-labelled input[type=email]:hover,
+.input-labelled input[type=tel]:focus,
+.input-labelled input[type=tel]:hover,
+.input-labelled input[type=date]:focus,
+.input-labelled input[type=date]:hover,
+.input-labelled input[type=search]:focus,
+.input-labelled input[type=search]:hover,
+.input-labelled textarea:focus,
+.input-labelled textarea:hover,
+.input-labelled select:not(.tselect):focus,
+.input-labelled select:not(.tselect):hover,
+.input-labelled .editor:focus,
+.input-labelled .editor:hover {
+  border: 1px solid #aaaaaa;
+  border-radius: 3px;
+}
+.input-labelled textarea {
+  resize: none;
+  padding-bottom: 2em;
+}
+.input-labelled .help-text {
+  font-size: var(--font-size-sm);
+  font-style: italic;
+  padding: 2px;
+}
+.input-labelled .input-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+.input-labelled .input-body .errors-list ul {
+  list-style-type: disc;
+}
+.input-labelled .input-body .errors-list ul li {
+  color: #ff4a4a;
+  font-weight: 700;
+}
+.input-labelled .input-body.checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.input-labelled .input-body .clr-field {
+  width: fit-content;
+}
+
+.input-framed .drop-container {
+  position: "relative";
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 2px dashed var(--main);
+  color: var(--dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.input-framed .drop-container:hover, .input-framed .drop-container.drag-active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.input-framed .drop-container .input-file {
+  border: 2px dashed var(--main);
+  width: 300px;
+  padding: 12px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.input-picker .color-picker {
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  gap: 5px;
+}
+.input-picker .color-picker .clr-field button {
+  width: 50%;
+}
+.input-picker .color-picker input[data-coloris] {
+  padding: 7px 7px;
+  width: 350px;
+  border: 1px solid #F8F8F8;
+  border-right: none;
+}
+.input-picker .color-picker span {
+  width: 100%;
+}
+
+#top-shortcut {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: all 0.5s ease;
+  z-index: 1000;
+}
+#top-shortcut img {
+  width: inherit;
+  height: inherit;
+}
+
+#login-form-container {
+  width: 100vw;
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--main);
+  background-image: url("/assets/imgs/backgrounds/layered-waves-haikei.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#login-form-container #login-form {
+  background-color: var(--white);
+  width: 400px;
+  border: 1px solid #F8F8F8;
+  border-radius: 3px;
+  box-shadow: 0px 0px 15px -5px rgba(48, 48, 48, 0.3);
+}
+#login-form-container #login-form #logo-ostyna {
+  width: 100%;
+  border-bottom: 2px solid #F0F0F0;
+  border-radius: 0px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+#login-form-container #login-form #logo-ostyna img {
+  display: block;
+  margin: auto;
+  box-sizing: border-box;
+  width: inherit;
+  padding: 0 15px;
+}
+#login-form-container #login-form #login-form-content {
+  padding-bottom: 30px;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }/*# sourceMappingURL=app.css.map */

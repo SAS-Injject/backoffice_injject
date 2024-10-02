@@ -1,0 +1,36 @@
+{% extends "_partials/_std_table_list.html.twig" %}
+
+{% block ttitle %}Listes des Categories d'Articles{% endblock %}
+
+{% block tfilter %}
+<a class="btn filled-main btn-sm" href="{{ path('app_articles') }}">Articles</a>
+{% endblock %}
+
+{% block tbody %}
+  <tr class="line-link" data-href="{{ path('app_articles_categories_add') }}">
+    <td scope='row' colspan="6" class="center fw-bold fc-main">Nouvelle Catégorie</td>
+  </tr>
+  {% if categories|length > 0 %}
+    {% for category in categories %}
+    <tr class="line-link" data-href="{{ path('app_articles_categories_edit', {'id': category.id}) }}">
+      <td class="fw-bold center" scope="row">{{ "%05d"|format(category.id) }}</td>
+      <td>{{ category.label }}</td>
+      {# <td data-bs-toggle="tooltip" 
+        data-bs-html="true"
+        data-bs-title="{% for category in article.categories %}{{ category.label }}<br>{% endfor %}" 
+      >{% if article.categories|length > 0 %}{{ article.categories[0].label }}{% if article.categories|length > 1 %},...{% endif %}{% endif %}</td>
+      <td> #}
+      {# {{ article.authors[0].username }} #}
+      {# </td> #}
+      <td>{{ category.account }}</td>
+      <td>          
+        <a  
+          class="btn-i filled-transparent"
+          href="{{ path('app_articles_categories_remove', {'id': category.id}) }}"
+          data-remove='{{ category.id }}'
+        ><img src="{{ asset('assets/imgs/icons/utilities/remove.svg') }}" alt="" width="15"></a>
+      </td>
+    </tr>
+    {% endfor %}
+  {% endif %}
+{% endblock %}

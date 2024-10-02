@@ -1,0 +1,19 @@
+<div class="input-labelled input-framed">
+  <div class="input-body">
+    <label class="drop-container" for="{{ input.vars.id }}">
+      <span class="fs-lg fw-medium">{{ input.vars.label }}</span>
+      ou
+      {{form_widget(input, {'attr': {'class': 'input-file'} }) }} 
+    </label>
+    {{form_help(input, {'attr': {'class': ''} }) }}
+    <div class="errors-list">
+      {{form_errors(input, {'attr': {'class': ''} }) }} 
+    </div>
+    {% for img in imgs %}
+      <div class="flex flexj-c mt-sm">
+        <img src={{ article.thumbnailFile }} width='300'>
+      </div>
+    {% endfor %}
+  </div>
+
+</div>

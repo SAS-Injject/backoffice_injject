@@ -1,0 +1,29 @@
+{% extends "_partials/_std_table_list.html.twig" %}
+
+{% block ttitle %}Listes des Réalisations{% endblock %}
+
+{% block tfilter %}
+<a class="btn filled-main btn-sm" href="{{ path('app_realizations_categories') }}">Categories</a>
+{% endblock %}
+
+{% block tbody %}
+  <tr class="line-link" data-href="{{ path('app_realizations_add') }}">
+    <td scope='row' colspan="4" class="center fw-bold fc-main">Nouvelle Réalisation</td>
+  </tr>
+  {% if realizations|length > 0 %}
+    {% for realization in realizations %}
+    <tr class="line-link" data-href="{{ path('app_realizations_edit', {'id': realization.id}) }}">
+      <td class="fw-bold center" scope="row">{{ "%05d"|format(realization.id) }}</td>
+      <td>{{ realization.title }}</td>
+      <td>{% if realization.isPublished %}oui{% else %}non{% endif %}</td>
+      <td>          
+        <a  
+          class="btn-i filled-transparent"
+          href="{{ path('app_realizations_remove', {'id': realization.id}) }}"
+          data-remove='{{ realization.id }}'
+        ><img src="{{ asset('assets/imgs/icons/utilities/remove.svg') }}" alt="" width="15"></a>
+      </td>
+    </tr>
+    {% endfor %}
+  {% endif %}
+{% endblock %}

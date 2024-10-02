@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Portail Injject - Connexion{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,48 +10,61 @@
         {% block stylesheets %}
         {% endblock %}
 
-        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/bootstrap/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/bootstrap/bootstrap.bundle.min.js') }}"></script>
         {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
+        {% block importmap %}{{ importmap('app') }}{% endblock %}
     </head>
     <body>
-        <form method="post">
-          {% if error %}
-              <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-          {% endif %}
+        <section id="login-form-container">
+          <form id="login-form" method="post">
+              {% if error %}
+                  <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+              {% endif %}
 
-          {% if app.user %}
-              <div class="mb-3">
-                  You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+              {# {% if app.user %}
+                  <div class="mb-3">
+                      You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                  </div>
+              {% else%}
+              
+              {% endif %} #}
+
+              <div id="logo-ostyna">
+                <img src="{{ asset('/assets/imgs/logo/full-logo.png') }}" srcset="">
               </div>
-          {% endif %}
+              <div id="login-form-content">
+                <div class="input-alone">          
+                  <label for="username">ID Unique Utilisateur</label>
+                  <input type="text" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="username" required autofocus>
+                </div>
+                <div class="input-alone">            
+                  <label for="password">Mot de passe</label>
+                  <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+                </div>
 
-          <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-          <label for="username">Usename</label>
-          <input type="text" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="" required autofocus>
-          <label for="password">Password</label>
-          <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+                <input type="hidden" name="_csrf_token"
+                      value="{{ csrf_token('authenticate') }}"
+                >
 
-          <input type="hidden" name="_csrf_token"
-                value="{{ csrf_token('authenticate') }}"
-          >
+                {#
+                    Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                    See https://symfony.com/doc/current/security/remember_me.html
 
-          {#
-              Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-              See https://symfony.com/doc/current/security/remember_me.html
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" name="_remember_me"> Remember me
+                        </label>
+                    </div>
+                #}
 
-              <div class="checkbox mb-3">
-                  <input type="checkbox" name="_remember_me" id="_remember_me">
-                  <label for="_remember_me">Remember me</label>
+                <button class="btn filled-main" type="submit">
+                    Se connecter
+                </button>
               </div>
-          #}
-
-          <button class="btn btn-lg btn-primary" type="submit">
-              Connexion
-          </button>
-      </form>
+          </form>
+        </section>
     </body>
 </html>
 

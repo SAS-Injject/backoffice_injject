@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Helpers\YamlFileHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -12,7 +13,7 @@ class ConfigurationController extends AbstractController
     public function index(): Response
     {
         return $this->render('configuration/index.html.twig', [
-            'controller_name' => 'ConfigurationController',
+          'config' => YamlFileHelper::getYAMLContent($this->getParameter('controller_dir').'/config/navigation.yaml'),
         ]);
     }
 }

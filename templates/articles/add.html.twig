@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portail Injject Marketing - Articles{% endblock %}
+
+{% block javascripts %}
+
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@2.7.0/dist/bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/list@1.8.0/dist/bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/link@2.5.0/dist/bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@1.5.0/dist/bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/raw@2.4.0/dist/bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+<script src="{{ asset('assets/tomSelect/tom-select/js/tom-select.complete.js') }}"></script>
+
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/tomSelect/tom-select/css/tom-select.css') }}">
+{% endblock %}
+
+{% block deferjavascripts %}
+<script src="{{ asset("assets/js/dropContainer.js") }}"></script>
+<script async src="{{ asset('assets/js/articleEditor.js') }}"></script>
+<script src="{{ asset('assets/tomSelect/tomSelect.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+  {{ form_start (form, {'attr': {'class': 'form', 'id': 'article_form', 'data-form': 'editor'}}) }}
+    <a class="btn filled-main btn-sm" href="{{ path('app_articles') }}">Retour</a>
+    <div class="flex flexd-row flexj-sb flexa-c">
+      <h1>{{ title_form|default("Formulaire") }}</h1>
+      <div>
+        <input class="btn filled-main btn-md" type="submit" name="save" value="Sauvegarder" form="article_form">
+        <input class="btn filled-main btn-md" type="submit" name="saveandpublish" value="Sauvegarder et Publier">
+      </div>
+    </div>
+    {% set imgs = [] %}
+    {% include "_partials/_form.html.twig" %}
+
+    <div class="input-labelled">
+      <label>Contenu de l'article</label>
+      <div id="article_editor" class="editor full-width">
+      </div>
+    </div>
+  {{ form_end (form)}}
+{% endblock %}

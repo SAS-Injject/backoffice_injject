@@ -1,0 +1,12 @@
+<div class="input-container full-width">
+  <div class="input-labelled">
+    {{form_label(input, null ,{'label_attr': {'class': '' } }) }}
+    <div class="input-body">
+      <div class="errors-list">
+        {{form_errors(input, {'attr': {'class': ''} }) }} 
+      </div>
+      {{form_widget(input, {'attr': {'class': ''} }) }} 
+      {{form_help(input, {'attr': {'class': ''} }) }}
+    </div>
+  </div>
+</div>
