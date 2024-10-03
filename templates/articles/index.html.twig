@@ -2,9 +2,19 @@
 
 {% block title %}Portail Injject Marketing - Articles{% endblock %}
 
+{% block javascripts %}
+<script src="{{ asset('assets/tomSelect/tom-select/js/tom-select.complete.js') }}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/tomSelect/tom-select/css/tom-select.css') }}">
+{% endblock %}
+
 {% block deferjavascripts %}
 <script src="{{ asset("assets/js/tableLineLink.js") }}"></script>
 <script src="{{ asset("assets/js/remove_validator.js") }}"></script>
+<script src="{{ asset('assets/tomSelect/tomSelect.js') }}"></script>
+<script src="{{ asset('assets/js/tableListFilter.js') }}"></script>
 {% endblock %}
 
 {% block body %}

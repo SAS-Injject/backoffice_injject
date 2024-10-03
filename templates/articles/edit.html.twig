@@ -37,9 +37,9 @@
     </div>
 
     {% set imgs = [] %}
-    {% if article.thumbnailFile is defined %}
+    {% if article.thumbnailFile is defined and article.thumbnailFile|length > 0 %}
       {% set imgs = {
-          '1': '{{ article.thumbnailFile }}'
+          '1': article.thumbnailFile
         }
       %}
     {% endif %}

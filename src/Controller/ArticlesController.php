@@ -27,12 +27,33 @@ class ArticlesController extends AbstractController
   #[Route('/articles', name: 'app_articles')]
   public function index(
     ArticlesRepository $articlesRepository,
+    ArticlesCategoriesRepository $articlescategoriesRepository,
     Request $request
   ): Response
   {
     $page = $request->query->getInt('page', 1);
-    $realizations_paginated = $articlesRepository->findAllPaginated($page);
-    $pages = $realizations_paginated['pages']; 
+    $categories = $request->query->getString('categories', "");
+    if( !empty($categories)) {
+      $categories = json_decode($categories);
+    } else {
+      $categories = [];
+    }
+
+
+    $articles_paginated = $articlesRepository->findAllPaginated($page);
+    if($categories !== []) {
+      $articles_paginated['data'] = array_filter($articles_paginated['data'], function  ($article) use ($categories)  {
+        foreach($article->getCategories() as $cat) {
+          if (in_array($cat->getId(), $categories)) {
+            return $article;
+          }
+        }
+        return null;
+      });
+    }
+
+    $articles_categories = $articlescategoriesRepository->findAll();
+    $pages = $articles_paginated['pages']; 
 
     $columns = ["Titre", "Dates", "Publié", "Vues"];
 
@@ -45,7 +66,9 @@ class ArticlesController extends AbstractController
       'page' => $page,
       'pages' => $pages,
       'columns' => $columns,
-      'articles' => $realizations_paginated['data'],
+      'articles' => $articles_paginated['data'],
+      'categories' => $articles_categories,
+      'selected_categories' => $categories,
       'recap' => [ $created, $published, $important ],
     ]);
   }

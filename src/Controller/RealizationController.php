@@ -24,13 +24,32 @@ class RealizationController extends AbstractController
   #[Route('/realizations', name: 'app_realizations')]
   public function index(
     RealizationRepository $realizationRepository,
+    RealizationCategoriesRepository $realizationCategoriesRepository,
     Request $request
   ): Response
   {
     $page = $request->query->getInt('page', 1);
-    $articles_paginated = $realizationRepository->findAllPaginated($page);
-    $pages = $articles_paginated['pages']; 
+    $categories = $request->query->getString('categories', "");
+    if( !empty($categories)) {
+      $categories = json_decode($categories);
+    } else {
+      $categories = [];
+    }
 
+    $realizations_paginated = $realizationRepository->findAllPaginated($page);
+    if($categories !== []) {
+      $realizations_paginated['data'] = array_filter($realizations_paginated['data'], function  ($realization) use ($categories)  {
+        foreach($realization->getCategories() as $cat) {
+          if (in_array($cat->getId(), $categories)) {
+            return $realization;
+          }
+        }
+        return null;
+      });
+    }
+
+    $pages = $realizations_paginated['pages']; 
+    $realization_categories = $realizationCategoriesRepository->findAll();
     $columns = ["Titre", "Publié"];
 
     $created = TableRecap::make_recap("Créé", $realizationRepository, IconRecapEnum::CREATED_ICON);
@@ -41,7 +60,9 @@ class RealizationController extends AbstractController
       'page' => $page,
       'pages' => $pages,
       'columns' => $columns,
-      'realizations' => $articles_paginated['data'],
+      'realizations' => $realizations_paginated['data'],
+      'categories' => $realization_categories,
+      'selected_categories' => $categories,
       'recap' => [ $created, $published ],
     ]);
   }

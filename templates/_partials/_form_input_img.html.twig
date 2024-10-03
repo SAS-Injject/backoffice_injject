@@ -9,11 +9,14 @@
     <div class="errors-list">
       {{form_errors(input, {'attr': {'class': ''} }) }} 
     </div>
-    {% for img in imgs %}
-      <div class="flex flexj-c mt-sm">
-        <img src={{ article.thumbnailFile }} width='300'>
-      </div>
-    {% endfor %}
+    {% if imgs|length > 0 %}
+    
+      {% for img in imgs %}
+        <div class="flex flexj-c mt-sm">
+          <img src={{ img }} width='300'>
+        </div>
+      {% endfor %}
+    {% endif %}
   </div>
 
 </div>

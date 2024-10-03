@@ -3,7 +3,17 @@
 {% block ttitle %}Listes des Réalisations{% endblock %}
 
 {% block tfilter %}
-<a class="btn filled-main btn-sm" href="{{ path('app_realizations_categories') }}">Categories</a>
+  <a class="btn filled-main btn-sm" href="{{ path('app_realizations_categories') }}">Categories</a>
+  <div class="flex flexd-r gap-sm my-sm">
+    <select class="tselect full-width" id="tselect-search" name="categories[]"
+      autocomplete="off" data-tselect="data-tselect" multiple
+    >
+    {% for category in categories %}
+      <option value="{{ category.id }}" {% if category.id in selected_categories %}selected{% endif %}>{{ category.label }}</option>
+    {% endfor %}
+    </select>
+    <button class="btn filled-main btn-md" data-filter="tselect-search" data-href="/realizations">Filtrer</button>
+  </div>
 {% endblock %}
 
 {% block tbody %}
