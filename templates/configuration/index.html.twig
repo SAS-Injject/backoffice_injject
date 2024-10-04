@@ -1,6 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ConfigurationController!{% endblock %}
+{% block title %}Configuration{% endblock %}
 
 {% block body %}
+
+<form id="config-form" method="post">
+
+  <div class="flex flexd-row flexj-sb flexa-c">
+    <h1>{{ title_form|default("Configuration") }}</h1>
+    <div>
+      <input class="btn filled-main btn-md" type="submit" name="save" value="Sauvegarder" form="config-form">
+    </div>
+  </div>
+
+  {% for configuration in configurations %}
+
+    {% if configuration.type == 'string' %}
+      {% include "_partials/_form_flatinput_text.html.twig" with { item: configuration} %}
+    {% elseif configuration.type == 'boolean' %}
+      {% include "_partials/_form_flatchoice.html.twig" with { item: configuration} %}
+    {% endif %}
+  {% endfor %}
+
+  <input type="hidden" name="_csrf_token"
+        value="{{ csrf_token('configurate') }}"
+  >
+
+</form>
 {% endblock %}

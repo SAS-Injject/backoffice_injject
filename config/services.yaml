@@ -6,6 +6,7 @@
 parameters:
   controller_dir: '%kernel.project_dir%/src/Controller'
   thumbnail_directory: '%kernel.project_dir%/public/assets/imgs/thumbnails/'
+  article_image_directory: '%kernel.project_dir%/public/assets/imgs/articles/'
 
 services:
     # default configuration for services in *this* file

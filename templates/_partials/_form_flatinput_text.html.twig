@@ -1,0 +1,12 @@
+<div class="input-container full-width">
+  <div class="input-labelled">
+  <label class="" for="{{ item.id }}">{{ item.label }}</label>
+    <div class="input-body">
+      <div class="errors-list">
+        
+      </div>
+      <input id="{{ item.id }}" name="{{ item.id }}" type="text" value="{{ item.value }}" {% if item.isMandatory %}{% endif %}>
+
+    </div>
+  </div>
+</div>

@@ -40,7 +40,7 @@ class ArticlesController extends AbstractController
     }
 
 
-    $articles_paginated = $articlesRepository->findAllPaginated($page);
+    $articles_paginated = $articlesRepository->findAllPaginated($page, 10);
     if($categories !== []) {
       $articles_paginated['data'] = array_filter($articles_paginated['data'], function  ($article) use ($categories)  {
         foreach($article->getCategories() as $cat) {

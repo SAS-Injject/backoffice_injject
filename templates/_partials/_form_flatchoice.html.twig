@@ -1,0 +1,13 @@
+<div class="input-container">
+  <div class="input-labelled checkbox">
+    <label for="{{ item.id }}">{{ item.label }}</label>
+    <div class="checkbox-wrapper-6">    
+      <input id="{{ item.id }}" name="{{ item.id }}" type="checkbox" class="tgl tgl-light" {% if item.value == "1" %}checked="checked"{% endif %} >
+      <label class="tgl-btn" for="{{ item.id }}">
+    </div>
+    <div class="errors-list">
+
+    </div>
+
+  </div>
+</div>

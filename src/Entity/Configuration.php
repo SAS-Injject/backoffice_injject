@@ -23,6 +23,9 @@ class Configuration
     #[ORM\Column]
     private ?bool $isMandatory = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $type = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -57,9 +60,21 @@ class Configuration
         return $this->isMandatory;
     }
 
-    public function setMandatory(bool $isMandatory): static
+    public function setIsMandatory(bool $isMandatory): static
     {
         $this->isMandatory = $isMandatory;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): static
+    {
+        $this->type = $type;
 
         return $this;
     }
