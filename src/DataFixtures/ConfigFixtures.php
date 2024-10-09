@@ -16,36 +16,60 @@ class ConfigFixtures extends Fixture
   public function load(ObjectManager $manager): void
   {
 
+    // $configs_mandatory = [
+    //   [
+    //     'label' => 'Adresse',
+    //     'value' => '2 Allée des Dahlias',
+    //     'type' => 'string',
+    //   ],
+    //   [
+    //     'label' => 'Code Postal',
+    //     'value' => '33700',
+    //     'type' => 'string',
+    //   ],
+    //   [
+    //     'label' => 'Ville',
+    //     'value' => 'MERIGNAC',
+    //     'type' => 'string',
+    //   ],
+    //   [
+    //     'label' => 'Téléphone',
+    //     'value' => '09 51 99 85 51',
+    //     'type' => 'string',
+    //   ],
+    //   [
+    //     'label' => 'Email',
+    //     'value' => 'reception@injject.com',
+    //     'type' => 'string',
+    //   ],
+    //   [
+    //     'label' => 'Maintenance',
+    //     'value' => '0',
+    //     'type' => 'boolean',
+    //   ],
+    // ];
+
     $configs_mandatory = [
       [
-        'label' => 'Adresse',
-        'value' => '2 Allée des Dahlias',
-        'type' => 'string',
+        'label' => 'Conditions Générales d\'Utilisation',
+        'value' => '',
+        'type' => 'text',
+        'name' => 'cgu',
+        'field' => 'legals'
       ],
       [
-        'label' => 'Code Postal',
-        'value' => '33700',
-        'type' => 'string',
+        'label' => 'Conditions Générales de Vente',
+        'value' => '',
+        'type' => 'text',
+        'name' => 'cgv',
+        'field' => 'legals'
       ],
       [
-        'label' => 'Ville',
-        'value' => 'MERIGNAC',
-        'type' => 'string',
-      ],
-      [
-        'label' => 'Téléphone',
-        'value' => '09 51 99 85 51',
-        'type' => 'string',
-      ],
-      [
-        'label' => 'Email',
-        'value' => 'reception@injject.com',
-        'type' => 'string',
-      ],
-      [
-        'label' => 'Maintenance',
-        'value' => '0',
-        'type' => 'boolean',
+        'label' => 'Mentions Légales',
+        'value' => '',
+        'type' => 'text',
+        'name' => 'legal',
+        'field' => 'legals'
       ],
     ];
 
@@ -56,6 +80,8 @@ class ConfigFixtures extends Fixture
       $obj_config->setValue($config['value']);
       $obj_config->setIsMandatory(true);
       $obj_config->setType($config['type']);
+      $obj_config->setName($config['name']);
+      $obj_config->setField($config['field']);
       $manager->persist($obj_config);
     }
 

@@ -4,17 +4,22 @@ namespace App\Controller;
 
 use App\Entity\Realization;
 use App\Entity\RealizationCategories;
+use App\Entity\RealizationPhoto;
 use App\Form\RealizationCategoriesFormType;
 use App\Form\RealizationFormType;
 use App\Helpers\IconRecapEnum;
 use App\Helpers\TableRecap;
 use App\Helpers\YamlFileHelper;
 use App\Repository\RealizationCategoriesRepository;
+use App\Repository\RealizationPhotoRepository;
 use App\Repository\RealizationRepository;
+use App\Services\PictureService;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -50,10 +55,10 @@ class RealizationController extends AbstractController
 
     $pages = $realizations_paginated['pages']; 
     $realization_categories = $realizationCategoriesRepository->findAll();
-    $columns = ["Titre", "Publié"];
+    $columns = ["Titre", "Client", "Publié"];
 
-    $created = TableRecap::make_recap("Créé", $realizationRepository, IconRecapEnum::CREATED_ICON);
-    $published = TableRecap::make_recap("Publié", $realizationRepository, IconRecapEnum::PUBLISH_ICON, ['is_published' => true]);
+    $created = TableRecap::make_recap("Créé", $realizationRepository, IconRecapEnum::CREATED_ICON, item_name:"Réalisation");
+    $published = TableRecap::make_recap("Publié", $realizationRepository, IconRecapEnum::PUBLISH_ICON, ['is_published' => true], item_name:"Réalisation");
 
     return $this->render('realizations/index.html.twig', [
       'config' => YamlFileHelper::getYAMLContent($this->getParameter('controller_dir').'/config/navigation.yaml'),
@@ -70,7 +75,9 @@ class RealizationController extends AbstractController
   #[Route('/realizations/add', name: 'app_realizations_add')]
   public function add(
     Request $request,
-    EntityManagerInterface $entityManager
+    EntityManagerInterface $entityManager,
+    PictureService $pictureService,
+    ParameterBagInterface $params
   ): Response
   {
 
@@ -80,6 +87,20 @@ class RealizationController extends AbstractController
     $realization_form->handleRequest($request);
 
     if($realization_form->isSubmitted() && $realization_form->isValid()) {
+
+      foreach($realization_form->get('photos')->getData() as $preProcessedPhoto) {
+        $file = $pictureService->add($preProcessedPhoto, "realizations/".$realization->getId());
+
+        $photo = new RealizationPhoto();
+        $photo->setFile($file['origin']);
+        $photo->setName($file['name']);
+        $photo->setAlt("");
+        $photo->setLegend("");
+
+        $entityManager->persist($photo);
+
+        $realization->addPhoto($photo);
+      }
 
       if(null !== $request->request->get('saveandpublish')) {
         $realization->setIsPublished(true);
@@ -115,6 +136,7 @@ class RealizationController extends AbstractController
     Request $request,
     Realization $realization,
     EntityManagerInterface $entityManager,
+    PictureService $pictureService,
   ): Response
   {
 
@@ -122,6 +144,20 @@ class RealizationController extends AbstractController
     $realization_form->handleRequest($request);
 
     if($realization_form->isSubmitted() && $realization_form->isValid()) {
+
+      foreach($realization_form->get('photos')->getData() as $preProcessedPhoto) {
+        $file = $pictureService->add($preProcessedPhoto, "realizations/".$realization->getId());
+
+        $photo = new RealizationPhoto();
+        $photo->setFile($file['origin']);
+        $photo->setName($file['name']);
+        $photo->setAlt("");
+        $photo->setLegend("");
+
+        $entityManager->persist($photo);
+
+        $realization->addPhoto($photo);
+      }
 
       if(null !== $request->request->get('saveandpublish')) {
         $realization->setIsPublished(true);
@@ -145,7 +181,7 @@ class RealizationController extends AbstractController
     }
 
     return $this->render('realizations/edit.html.twig', [
-      'article' => $realization,
+      'realization' => $realization,
       'config' => YamlFileHelper::getYAMLContent($this->getParameter('controller_dir').'/config/navigation.yaml'),
       'form' => $realization_form,
       'title_form' => 'Modifier la Réalisation'
@@ -155,9 +191,16 @@ class RealizationController extends AbstractController
   #[Route('/realizations/remove/{id}', name: 'app_realizations_remove')]
   public function remove(
     Realization $realization,
-    EntityManagerInterface $entityManager   
+    EntityManagerInterface $entityManager,
+    PictureService $pictureService   
   ): Response
   {
+
+    foreach($realization->getPhotos() as $photo) {
+      $pictureService->delete($photo->getFile(), "realisations");
+      $entityManager->remove($photo);
+    }
+
     $entityManager->remove($realization);
     try {
         $entityManager->flush();
@@ -293,4 +336,30 @@ class RealizationController extends AbstractController
 
     return $this->redirectToRoute('app_realizations_categories');
   }
+
+  #[Route('/realizations/photo/remove/{id}', name: 'app_realizations_photo_remove')]
+  public function remove_photo(
+    RealizationPhoto $realizationPhoto,
+    EntityManagerInterface $entityManager,
+    PictureService $pictureService,
+    Request $request    
+  ): Response{
+
+    $data = json_decode($request->getContent(), true);
+
+    if($this->isCsrfTokenValid('delete' . $realizationPhoto->getId(), $data['_token'])) {
+      $pictureService->delete($realizationPhoto->getFile(), "realisations");
+      $entityManager->remove($realizationPhoto);
+      try {
+          $entityManager->flush();
+      } catch (Exception $e) {
+
+      }
+
+      return new JsonResponse(['success' => 'Ok'], 200);
+    }
+
+    return new JsonResponse(['error' => 'Token'], 400);
+  }
+
 }

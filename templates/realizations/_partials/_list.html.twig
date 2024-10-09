@@ -25,6 +25,7 @@
     <tr class="line-link" data-href="{{ path('app_realizations_edit', {'id': realization.id}) }}">
       <td class="fw-bold center" scope="row">{{ "%05d"|format(realization.id) }}</td>
       <td>{{ realization.title }}</td>
+      <td>{{ realization.customer.name }}</td>
       <td>{% if realization.isPublished %}oui{% else %}non{% endif %}</td>
       <td>          
         <a  

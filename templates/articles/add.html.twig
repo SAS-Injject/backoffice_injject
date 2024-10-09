@@ -22,7 +22,7 @@
 
 {% block deferjavascripts %}
 <script src="{{ asset("assets/js/dropContainer.js") }}"></script>
-<script async src="{{ asset('assets/js/articleEditor.js') }}"></script>
+<script async src="{{ asset('assets/js/editor.js') }}"></script>
 <script src="{{ asset('assets/tomSelect/tomSelect.js') }}"></script>
 {% endblock %}
 
@@ -41,7 +41,7 @@
 
     <div class="input-labelled">
       <label>Contenu de l'article</label>
-      <div id="article_editor" class="editor full-width">
+      <div id="editor" class="editor full-width">
       </div>
     </div>
   {{ form_end (form)}}

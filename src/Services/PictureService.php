@@ -72,7 +72,7 @@ class PictureService
       // $resized_picture = imagecreatetruecolor($width, $height);
       // imagecopyresampled($resized_picture, $picture_source, 0, 0, $src_x, $src_y, $width, $height, $square_size, $square_size);
 
-      $path = $this->params->get('thumbnail_directory') . $folder;
+      $path = $this->params->get('imgs_directory') . $folder;
 
       // On crée le dossier de destination s'il n'existe pas
       // if(!file_exists($path . '/mini/')) {
@@ -93,15 +93,9 @@ class PictureService
   public function delete(string $file, ?string $folder = '', ?int $width = 300, ?int $height = 300) {
     $success = false;
 
-    $path = $this->params->get('thumbnail_directory') . $folder;
-    $mini = $path . '/mini/' . $width.'-'.$height.'_'.$file;
+    $path = $this->params->get('imgs_directory') . $folder;
 
-    if(file_exists($mini)) {
-      unlink($mini);
-      $success = true;
-    }
-
-    $original = $path . '/origin/' . $file;
+    $original = $path . '/' . $file;
     if(file_exists($original)) {
       unlink($original);
       $success = true;

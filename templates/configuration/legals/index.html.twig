@@ -11,44 +11,30 @@
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@1.5.0/dist/bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/raw@2.4.0/dist/bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
-<script src="{{ asset('assets/tomSelect/tom-select/js/tom-select.complete.js') }}"></script>
-
 {% endblock %}
 
 {% block stylesheets %}
-<link rel="stylesheet" href="{{ asset('assets/tomSelect/tom-select/css/tom-select.css') }}">
 {% endblock %}
 
 {% block deferjavascripts %}
-<script src="{{ asset("assets/js/dropContainer.js") }}"></script>
 <script async src="{{ asset('assets/js/editor.js') }}"></script>
-<script src="{{ asset('assets/tomSelect/tomSelect.js') }}"></script>
 {% endblock %}
 
 {% block body %}
-  {{ form_start (form, {'attr': {'class': 'form', 'id': 'article_form', 'data-form': 'editor'}}) }}
-    <a class="btn filled-main btn-sm" href="{{ path('app_articles') }}">Retour</a>
+  {{ form_start (form, {'attr': {'class': 'form', 'id': 'legals_form', 'data-form': 'editor'}}) }}
     <div class="flex flexd-row flexj-sb flexa-c">
       <h1>{{ title_form|default("Formulaire") }}</h1>
       <div>
-        <input class="btn filled-main btn-md" type="submit" name="save" value="Sauvegarder" form="article_form">
-        <input class="btn filled-main btn-md" type="submit" name="saveandpublish" value="Sauvegarder et Publier">
+        <input class="btn filled-main btn-md" type="submit" name="save" value="Sauvegarder" form="legals_form">
       </div>
     </div>
 
-    {% set imgs = [] %}
-    {% if article.thumbnailFile is defined and article.thumbnailFile|length > 0 %}
-      {% set imgs = {
-          '1': {'file': article.thumbnailFile }
-        }
-      %}
-    {% endif %}
     {% include "_partials/_form.html.twig" %}
 
     <div class="input-labelled">
       <label>Contenu de l'article</label>
       <div id="editor" class="editor full-width">
-        {{article.content}}
+        {{configuration.value}}
       </div>
     </div>
   {{ form_end (form)}}

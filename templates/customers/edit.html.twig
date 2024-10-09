@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Portail Injject Marketing - Articles{% endblock %}
+{% block title %}Portail Injject Marketing - Clients{% endblock %}
 
 {% block javascripts %}
 <script src="{{ asset('assets/tomSelect/tom-select/js/tom-select.complete.js') }}"></script>
@@ -15,16 +15,22 @@
 {% endblock %}
 
 {% block body %}
-  {{ form_start (form, {'attr': {'class': 'form', 'id': 'realization_form'}}) }}
-    <a class="btn filled-main btn-sm" href="{{ path('app_realizations') }}">Retour</a>
+  {{ form_start (form, {'attr': {'class': 'form', 'id': 'customer_form'}}) }}
+    <a class="btn filled-main btn-sm" href="{{ path('app_customers') }}">Retour</a>
     <div class="flex flexd-row flexj-sb flexa-c">
       <h1>{{ title_form|default("Formulaire") }}</h1>
       <div>
-        <input class="btn filled-main btn-md" type="submit" name="save" value="Sauvegarder" form="realization_form">
-        <input class="btn filled-main btn-md" type="submit" name="saveandpublish" value="Sauvegarder et Publier" form="realization_form">
+        <input class="btn filled-main btn-md" type="submit" name="save" value="Sauvegarder" form="customer_form">
       </div>
     </div>
+
     {% set imgs = [] %}
+    {% if customer.logoFile is defined and customer.logoFile|length > 0 %}
+      {% set imgs = {
+          '1': { 'file': customer.logoFile }
+        }
+      %}
+    {% endif %}
     {% include "_partials/_form.html.twig" %}
   {{ form_end (form)}}
 {% endblock %}

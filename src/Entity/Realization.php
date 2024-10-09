@@ -49,6 +49,12 @@ class Realization
     #[ORM\Column(type: Types::TEXT)]
     private ?string $answer = null;
 
+    #[ORM\ManyToOne(inversedBy: 'realizations')]
+    private ?Customers $customer = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $client_view = null;
+
     public function __construct()
     {
         $this->photos = new ArrayCollection();
@@ -194,6 +200,30 @@ class Realization
     public function setAnswer(string $answer): static
     {
         $this->answer = $answer;
+
+        return $this;
+    }
+
+    public function getCustomer(): ?Customers
+    {
+        return $this->customer;
+    }
+
+    public function setCustomer(?Customers $customer): static
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+
+    public function getClientView(): ?string
+    {
+        return $this->client_view;
+    }
+
+    public function setClientView(string $client_view): static
+    {
+        $this->client_view = $client_view;
 
         return $this;
     }

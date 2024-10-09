@@ -22,5 +22,9 @@
 ###> symfony/asset-mapper ###
 /public/assets/imgs/articles/*
 /public/assets/imgs/thumbnails/*
+/public/assets/imgs/realizations/*
 /assets/vendor/
+/migrations/
+/migrations/*
+*.json
 ###< symfony/asset-mapper ###

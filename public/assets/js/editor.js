@@ -1,9 +1,10 @@
 const articleForm = document.querySelector('[data-form=editor]');
-const contentData = document.getElementById('articles_form_data') || document.getElementById('articles_modify_form_data');
-const Data = document.getElementById('article_editor');
+const contentData = document.querySelector('[data-content-editor=editor_data]');
+const Data = document.getElementById('editor');
 
 let savedData = {};
 if(Data.innerText.length > 0 && typeof(Data) != undefined) {
+
   savedData = JSON.parse(Data.innerText);
   Object.entries(savedData.blocks).forEach(block => {
     if(block[1].data.text != undefined) {
@@ -14,8 +15,8 @@ if(Data.innerText.length > 0 && typeof(Data) != undefined) {
 
 Data.innerHTML = "";
 
-const articleEditorJS = new EditorJS({
-  holder: 'article_editor',
+const editor_js = new EditorJS({
+  holder: 'editor',
   inlineToolBar: ['header', 'text', 'bold', 'italic'],
   tools: {
     header: {
@@ -52,7 +53,7 @@ articleForm.onsubmit = async (event) => {
   // let token = await fetch(window.location.origin+'/api/getcsrftoken').then(response => response.json());
 
   // sauvegarde des données de l'éditeur dans la variable data
-  await articleEditorJS.save().then((response) => { 
+  await editor_js.save().then((response) => { 
   return response;
   }).then(formatted_data => {
     let form_data = new FormData()

@@ -99,7 +99,7 @@ class ArticlesController extends AbstractController
       $article->addAuthor($this->getUser());
 
       if($article_form->get('thumbnail')->getData() !== null) {
-        $thumbnail = $pictureService->add($article_form->get('thumbnail')->getData(), "");
+        $thumbnail = $pictureService->add($article_form->get('thumbnail')->getData(), "thumbnails/".$article->getId());
 
         $article->setThumbnailFile($thumbnail['origin']);
         $article->setThumbnailName($thumbnail['name']);
@@ -173,7 +173,7 @@ class ArticlesController extends AbstractController
       $article->addAuthor($this->getUser());
 
       if($article_form->get('thumbnail')->getData() !== null) {
-        $thumbnail = $pictureService->add($article_form->get('thumbnail')->getData(), "");
+        $thumbnail = $pictureService->add($article_form->get('thumbnail')->getData(), "thumbnails/".$article->getId());
 
         $article->setThumbnailFile($thumbnail['origin']);
         $article->setThumbnailName($thumbnail['name']);

@@ -15,11 +15,23 @@ navigation:
       - label: "Réalisations"
         href: "app_realizations"
         role: "ROLE_USER"
+      - label: "Clients"
+        href: "app_customers"
+        role: "ROLE_USER"
   - label: "Configuration"
     name: configuration
     href: "app_configuration"
     role: "ROLE_USER"
     sub:
+      - label: "Condtions Générales d'Utilisation"
+        href: "app_configuration_legals_cgu"
+        role: "ROLE_USER"
+      - label: "Condtions Générales de Vente"
+        href: "app_configuration_legals_cgv"
+        role: "ROLE_USER"
+      - label: "Mentions Légales"
+        href: "app_configuration_legals_notices"
+        role: "ROLE_USER"
   - label: "Déconnexion"
     name: logout
     href: "app_logout"

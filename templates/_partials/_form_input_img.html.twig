@@ -10,12 +10,19 @@
       {{form_errors(input, {'attr': {'class': ''} }) }} 
     </div>
     {% if imgs|length > 0 %}
-    
+      <div class="flex flexd-r flexj-c mt-sm">
       {% for img in imgs %}
         <div class="flex flexj-c mt-sm">
-          <img src={{ img }} width='300'>
+          <img src={{ img.file }} width='300' style="object-fit: contain"
+          {% if delete is defined and delete %}
+          href="{{ path('app_realizations_photo_remove', {id:img.id}) }}"
+          data-delete
+          data-token="{{ csrf_token('delete' ~ img.id) }}"
+          {% endif %}
+          >
         </div>
       {% endfor %}
+      </div>
     {% endif %}
   </div>
 

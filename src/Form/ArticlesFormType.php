@@ -90,7 +90,7 @@ class ArticlesFormType extends AbstractType
             'label' => false,
             'mapped' => false,
             'attr' => [
-              'id' => 'articles_form_data'
+              'data-content-editor' => 'editor_data'
             ]
           ])
       ;

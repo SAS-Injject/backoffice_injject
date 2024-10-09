@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CustomersRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -28,6 +30,17 @@ class Customers
 
     #[ORM\Column(length: 255)]
     private ?string $logo_legend = null;
+
+    /**
+     * @var Collection<int, Realization>
+     */
+    #[ORM\OneToMany(targetEntity: Realization::class, mappedBy: 'customer')]
+    private Collection $realizations;
+
+    public function __construct()
+    {
+        $this->realizations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -90,6 +103,36 @@ class Customers
     public function setLogoLegend(string $logo_legend): static
     {
         $this->logo_legend = $logo_legend;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Realization>
+     */
+    public function getRealizations(): Collection
+    {
+        return $this->realizations;
+    }
+
+    public function addRealization(Realization $realization): static
+    {
+        if (!$this->realizations->contains($realization)) {
+            $this->realizations->add($realization);
+            $realization->setCustomer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRealization(Realization $realization): static
+    {
+        if ($this->realizations->removeElement($realization)) {
+            // set the owning side to null (unless already changed)
+            if ($realization->getCustomer() === $this) {
+                $realization->setCustomer(null);
+            }
+        }
 
         return $this;
     }

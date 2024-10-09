@@ -2,13 +2,16 @@
 
 namespace App\Form;
 
+use App\Entity\Customers;
 use App\Entity\Realization;
 use App\Entity\RealizationCategories;
+use App\Repository\CustomersRepository;
 use App\Repository\RealizationCategoriesRepository;
 use App\Traits\ArticlesFormParametersTraits;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -40,7 +43,7 @@ class RealizationFormType extends AbstractType
               'label' => 'Catégories',
               'multiple' => true,
               'required' => true,
-              'placeholder' => 'Choisissez des catégories',
+              'placeholder' => 'Choisissez des Catégories',
               'query_builder' => function(RealizationCategoriesRepository $rcr) {
                 return $rcr->createQueryBuilder('rc')
                   ->orderBy('rc.label', 'ASC');
@@ -48,6 +51,33 @@ class RealizationFormType extends AbstractType
               'attr' => [
                 'data-tselect' => true
               ],
+            ])
+            ->add('customer', EntityType::class, [
+              'class' => Customers::class,
+              'choice_label' => 'name',
+              'label' => 'Client',
+              'multiple' => false,
+              'required' => true,
+              'query_builder' => function(CustomersRepository $cr) {
+                return $cr->createQueryBuilder('c')
+                  ->orderBy('c.name', 'ASC');
+              },
+              'attr' => [
+                'data-tselect' => true
+              ],
+            ])
+            ->add('client_view', TextType::class, [
+              'label' => 'Avis Client'
+            ])
+            ->add('photos', FileType::class, [
+              'label' => 'Photos du Projet',
+              'required' => false,
+              'multiple' => true,
+              'mapped' => false,
+              'attr' => [
+                'accept' => 'image/png, image/jpeg, image/webp',
+                'data-drop' => 'true',
+              ]
             ])
             ->add('context', TextareaType::class, [
               'label' => 'Contexte',

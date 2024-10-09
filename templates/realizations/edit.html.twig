@@ -12,6 +12,7 @@
 
 {% block deferjavascripts %}
 <script src="{{ asset('assets/tomSelect/tomSelect.js') }}"></script>
+<script src="{{ asset("assets/js/filesDeletor.js") }}"></script>
 {% endblock %}
 
 {% block body %}
@@ -24,6 +25,13 @@
         <input class="btn filled-main btn-md" type="submit" name="saveandpublish" value="Sauvegarder et Publier" form="realization_form">
       </div>
     </div>
+    {% set imgs = [] %}
+    {% set delete = true %}
+    {% for photo in realization.photos %}
+      {% if photo.file is defined and photo.file|length > 0 %}
+        {% set imgs = imgs|merge([photo]) %}
+      {% endif %}
+    {% endfor %}
     {% include "_partials/_form.html.twig" %}
   {{ form_end (form)}}
 {% endblock %}
