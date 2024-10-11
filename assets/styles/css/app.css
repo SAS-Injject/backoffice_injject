@@ -1687,6 +1687,7 @@ nav#main-navigation aside nav.sub-bar aside .sub-nav-link.disabled {
   position: absolute;
   top: 55px;
   right: 5px;
+  z-index: 10000;
   width: 400px;
   background-color: #fbfbfb;
 }
