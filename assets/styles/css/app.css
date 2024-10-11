@@ -1685,7 +1685,7 @@ nav#main-navigation aside nav.sub-bar aside .sub-nav-link.disabled {
   flex-direction: column;
   gap: 5px;
   position: absolute;
-  top: 5px;
+  top: 55px;
   right: 5px;
   width: 400px;
   background-color: #fbfbfb;
